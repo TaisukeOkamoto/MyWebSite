@@ -1,0 +1,31 @@
+.pure-toggle-label {
+  border: none;
+}
+.pure-drawer {
+  background-color: #243040;
+}
+.pure-toggle-label .pure-toggle-icon,
+.pure-toggle-label .pure-toggle-icon:before,
+.pure-toggle-label .pure-toggle-icon:after {
+  background-color: #fff;
+}
+.pure-toggle-label:hover .pure-toggle-icon,
+.pure-toggle-label:hover .pure-toggle-icon:before,
+.pure-toggle-label:hover .pure-toggle-icon:after {
+  background-color: #fff;
+}
+.pure-drawer {
+  background-color: #f7a809;
+  overflow-y: scroll;
+}
+.pure-toggle-label[data-toggle-label='left'] {
+    left: 0px;
+}
+.pure-toggle-label {
+    top: 0;
+}
+/* my_style */
+.menu_wrap {
+  margin: 60px 0 0 0;
+  background: #fff;
+}

@@ -1,284 +1,405 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Fashion Center ウニクロ</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
-    <link href="css/bootstrap_edit.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" rel="stylesheet" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark bg-site">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item nav_all">
-                <a  class="nav-link active gothic" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
-              </li>
-              <ul class="none">
-                  <li><a class="dropdown-item" href="#">シャツ</a></li>
-                  <li><a class="dropdown-item" href="#">ボトムス</a></li>
-                  <li><a class="dropdown-item" href="#">インナー</a></li>
-                  <li><a class="dropdown-item" href="#">アウター</a></li>
-                  <li><a class="dropdown-item" href="#">シューズ</a></li>
-              </ul>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Men</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Women</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Kids</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Accessories</a>
-              </li>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Fashion Center ウニクロ</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+  <link href="css/bootstrap_edit.css" rel="stylesheet">
+  <link href="css/slick-theme.css" rel="stylesheet">
+  <link href="css/slick-theme.css" rel="stylesheet">
+  <link href="css/slick.css" rel="stylesheet">
+  <link href="css/pure-drawer.css" rel="stylesheet">
+  <link href="css/pure-drawer_edit.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="js/slick.min.js"></script>
+</head>
+
+<body>
+  <div class="pure-container" data-effect="pure-effect-slide">
+    <input type="checkbox" id="pure-toggle-left" class="pure-toggle" data-toggle="left" />
+    <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left"><span class="pure-toggle-icon"></span></label>
+    <nav class="pure-drawer" data-position="left">
+      <div class="menu_wrap">
+        <div class="list-group list-group-flush">
+          <a href="" class="list-group-item text-dark">All</a>
+          <div class="list-group-item gothic pointer">Men</div>
+          <ul class="list-group none p-3">
+            <li><a href="" class="text-site">商品一覧</a></li>
+            <li class="category-3 pointer">インナー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">シャツ</a></li>
             </ul>
-            <form class="form-inline mr-3 mt-md-0" action="item_search_result.html">
-              <input class="form-control mr-sm-2" type="text" placeholder="キーワード検索" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-          </div>
+            <li class="category-3 pointer">アウター</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジャケット</a></li>
+              <li><a href="" class="text-site">コート</a></li>
+            </ul>
+            <li class="category-3 pointer">ボトムス・靴</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジーンズ</a></li>
+              <li><a href="" class="text-site">靴</a></li>
+            </ul>
+            <li class="category-3 pointer">アクセリー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ネックレス</a></li>
+              <li><a href="" class="text-site">時計</a></li>
+              <li><a href="" class="text-site">ベルト</a></li>
+            </ul>
+          </ul>
+          <div class="list-group-item gothic pointer">Women</div>
+          <ul class="list-group none p-3">
+            <li><a href="" class="text-site">商品一覧</a></li>
+            <li class="category-3 pointer">インナー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">シャツ</a></li>
+            </ul>
+            <li class="category-3 pointer">アウター</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジャケット</a></li>
+              <li><a href="" class="text-site">コート</a></li>
+            </ul>
+            <li class="category-3 pointer">ボトムス・靴</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">靴</a></li>
+              <li><a href="" class="text-site">ジーンズ</a></li>
+            </ul>
+            <li class="category-3 pointer">アクセリー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ネックレス</a></li>
+              <li><a href="" class="text-site">時計</a></li>
+              <li><a href="" class="text-site">ベルト</a></li>
+            </ul>
+          </ul>
+          <div class="list-group-item gothic pointer">Kids</div>
+          <ul class="list-group none p-3">
+            <li><a href="" class="text-site">商品一覧</a></li>
+            <li class="category-3 pointer">インナー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">シャツ</a></li>
+            </ul>
+            <li class="category-3 pointer">アウター</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジャケット</a></li>
+              <li><a href="" class="text-site">コート</a></li>
+            </ul>
+            <li class="category-3 pointer">ボトムス・靴</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">靴</a></li>
+              <li><a href="" class="text-site">ジーンズ</a></li>
+            </ul>
+            <li class="category-3 pointer">アクセリー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ネックレス</a></li>
+              <li><a href="" class="text-site">時計</a></li>
+              <li><a href="" class="text-site">ベルト</a></li>
+            </ul>
+          </ul>
+          <form class="form-inline list-group-item" action="item_search_result.html">
+            <input class="form-control col-10" type="text" placeholder="キーワード検索" aria-label="Search">
+            <button class="btn bg-site col-2 keysearch" type="submit"><i class="fas fa-search"></i></button>
+          </form>
         </div>
-      </nav>
-    </header>
-    <div class="site_ttl"><h1><a href="index.html"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
-    <div class="sub_ttl"><h3>ユーザ一覧</h3></div>
-    <main role="main" class="container">
-      <form class="" action="master_user_list.html" method="post">
-        <div class="form-group row user_search_form mb-5">
-          <label for="inputUserName" class="col-3 col-form-label text-right">名前</label>
-          <div class="col-9 mb-3">
-            <input type="text" class="form-control" id="inputUserName" placeholder="名前">
-          </div>
-          <label for="inputUserMail" class="col-3 col-form-label text-right">メールアドレス</label>
-          <div class="col-9 mb-3">
-            <input type="text" class="form-control" id="inputUserMail" placeholder="メールアドレス">
-          </div>
-          <label for="selectUserGender" class="col-3 col-form-label text-right">性別</label>
-          <div class="col-9 mb-3">
-            <select class="custom-select">
+      </div>
+    </nav>
+    <div class="pure-pusher-container">
+      <div class="pure-pusher">
+        <div class="inner">
+          <header class="bg-site">
+            <div class="container pt-3 pb-3">
+              <ul class="nav justify-content-end font-weight-bold">
+                <li>
+                  <a class="nav-link active text-white" href="registration.html">新規登録</a>
+                </li>
+                <li>
+                  <a class="nav-link active gothic text-white" href="#" data-toggle="modal" data-target="#myModal">ログイン</a>
+                </li>
+                <li>
+                  <a class="nav-link active gothic cart text-white" href="cart.html"><i class="fas fa-cart-arrow-down"></i></a>
+                </li>
+              </ul>
+            </div>
+          </header>
+          <div class="site_ttl">
+            <h1><a href="index.html"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
+
+          <main role="main" class="container">
+            <div class="sub_ttl">
+              <h3>ユーザ一覧</h3></div>
+            <form class="" action="master_user_list.html" method="post">
+              <div class="form-group row user_search_form mb-5">
+                <label for="inputUserName" class="col-3 col-form-label text-right">名前</label>
+                <div class="col-9 mb-3">
+                  <input type="text" class="form-control" id="inputUserName" placeholder="名前">
+                </div>
+                <label for="inputUserMail" class="col-3 col-form-label text-right">メールアドレス</label>
+                <div class="col-9 mb-3">
+                  <input type="text" class="form-control" id="inputUserMail" placeholder="メールアドレス">
+                </div>
+                <label for="selectUserGender" class="col-3 col-form-label text-right">性別</label>
+                <div class="col-9 mb-3">
+                  <select class="custom-select">
               <option selected>選択してください</option>
               <option value="男">男</option>
               <option value="女">女</option>
             </select>
-          </div>
-              <label for="selectUserGender" class="col-3 col-form-label text-right">生年月日</label>
-              <div class="col-9 mb-3">
-                <div class="form-group row">
-                  <div class="form-group col">
-                    <select id="selectYearFrom" class="form-control">
+                </div>
+                <label for="selectUserGender" class="col-3 col-form-label text-right">生年月日</label>
+                <div class="col-9 mb-3">
+                  <div class="form-group row">
+                    <div class="form-group col">
+                      <select id="selectYearFrom" class="form-control">
                       <option selected>年</option>
                       <option>1111</option>
                     </select>
-                  </div>
-                  <div class="form-group col">
-                    <select id="selectMonthFrom" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                      <select id="selectMonthFrom" class="form-control">
                       <option selected>月</option>
                       <option>1111</option>
                     </select>
-                  </div>
-                  <div class="form-group col">
-                    <select id="selectDateFrom" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                      <select id="selectDateFrom" class="form-control">
                       <option selected>日</option>
                       <option>1111</option>
                     </select>
+                    </div>
                   </div>
-                </div>
-                <p class="text-center"><span class="rotate180">~</span></p>
-                <div class="form-group row">
-                  <div class="form-group col">
-                    <select id="selectYearTo" class="form-control">
+                  <p class="text-center"><span class="rotate180">~</span></p>
+                  <div class="form-group row">
+                    <div class="form-group col">
+                      <select id="selectYearTo" class="form-control">
                       <option selected>年</option>
                       <option>1111</option>
                     </select>
-                  </div>
-                  <div class="form-group col">
-                    <select id="selectMonthTo" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                      <select id="selectMonthTo" class="form-control">
                       <option selected>月</option>
                       <option>1111</option>
                     </select>
-                  </div>
-                  <div class="form-group col">
-                    <select id="selectDateTo" class="form-control">
+                    </div>
+                    <div class="form-group col">
+                      <select id="selectDateTo" class="form-control">
                       <option selected>日</option>
                       <option>1111</option>
                     </select>
+                    </div>
                   </div>
                 </div>
+                <div class="col text-center"><button type="submit" class="btn btn-primary">検索する</button></div>
               </div>
-          <div class="col text-center"><button type="submit" class="btn btn-primary">検索する</button></div>
-        </div>
-      </form>
-      <div class="row mb-3">
-        <div class="col text-center">番号</div>
-        <div class="col text-center">名前</div>
-        <div class="col-3 text-center">メールアドレス</div>
-        <div class="col text-center">性別</div>
-        <div class="col text-center">詳細</div>
-        <div class="col text-center">更新</div>
-        <div class="col text-center">削除</div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">1</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">1</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">2</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">3</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">4</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">5</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">6</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">7</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">8</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">9</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <div class="row mb-3">
-        <div class="col text-center">10</div>
-        <div class="col text-center">テキスト</div>
-        <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
-        <div class="col text-center">男</div>
-        <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
-        <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
-        <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
-      </div>
-      <!-- 削除モーダル -->
-      <div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-center" id="delete_userLabel">本当にユーザーを削除しますか</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            </form>
+            <div class="row mb-3">
+              <div class="col text-center">番号</div>
+              <div class="col text-center">名前</div>
+              <div class="col-3 text-center">メールアドレス</div>
+              <div class="col text-center">性別</div>
+              <div class="col text-center">詳細</div>
+              <div class="col text-center">更新</div>
+              <div class="col text-center">削除</div>
             </div>
-            <div class="modal-body">
-              <div class="text-center"><a class="btn btn-danger" href="master_user_list.html" role="button">削除</a></div>
+            <div class="row mb-3">
+              <div class="col text-center">1</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
             </div>
-          </div>
-        </div>
-      </div>
-      <nav aria-label="...">
-        <ul class="pagination justify-content-center">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="前">
+            <div class="row mb-3">
+              <div class="col text-center">1</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">2</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">3</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">4</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">5</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">6</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">7</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">8</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">9</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <div class="row mb-3">
+              <div class="col text-center">10</div>
+              <div class="col text-center">テキスト</div>
+              <div class="col-3">メールアドレスメールアドレスメールアドレス</div>
+              <div class="col text-center">男</div>
+              <div class="col text-center"><a href="master_user_detail.html"><button type="button" class="btn btn-info">詳細</button></a></div>
+              <div class="col text-center"><a href="master_user_update.html"><button type="button" class="btn btn-primary">更新</button></a></div>
+              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+            </div>
+            <nav aria-label="...">
+              <ul class="pagination justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="前">
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">前</span>
             </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="次">
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="次">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">次</span>
             </a>
-          </li>
-        </ul>
-      </nav>
-    </main>
-    <footer>
-      <div class="bg-site">
-        <div class="footer_inner">
-          <p class="text-center"><a href="master_top.html" class="text-white">管理者TOP</a></p>
-          <p class="copy">&copy;Fashion Center ウニクロ All Rights Reserved.</p>
+                </li>
+              </ul>
+            </nav>
+          </main>
+          <footer>
+            <div class="bg-site">
+              <div class="footer_inner">
+                <p class="text-center"><a href="master_top.html" class="text-white">管理者TOP</a></p>
+                <p class="copy">&copy;Fashion Center ウニクロ All Rights Reserved.</p>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
-    </footer>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $('.nav_all').click(function() {
-        $(this).next().slideToggle();
-    })
-    </script>
-  </body>
+    </div>
+    <label class="pure-overlay" for="pure-toggle-left" data-overlay="left"></label>
+    <!-- ログインモーダル -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="exampleModalLabel">ログイン</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+        <span aria-hidden="true">&times;</span>
+      </button>
+          </div>
+          <div class="modal-body">
+            <ul class="login">
+              <li><input type="text" name="mail" placeholder="ご登録メールアドレス"></li>
+              <li><input type="password" name="password" placeholder="パスワード"></li>
+            </ul>
+            <div class="text-center"><a class="btn btn-primary" href="mypage_top.html" role="button">ログイン</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 削除モーダル -->
+    <div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="delete_userLabel">本当にユーザーを削除しますか</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+        <span aria-hidden="true">&times;</span>
+      </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center"><a class="btn btn-danger" href="master_user_list.html" role="button">削除</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('.menu_wrap .list-group-item').click(function() {
+        $(this).next().slideToggle('fast');
+      });
+    });
+    $(function() {
+      $('.menu_wrap .category-3').click(function() {
+        $(this).next().slideToggle('fast');
+      });
+    });
+  </script>
+</body>
+
 </html>

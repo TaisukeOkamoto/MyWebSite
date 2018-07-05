@@ -1,131 +1,221 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Fashion Center ウニクロ</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
-    <link href="css/bootstrap_edit.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" rel="stylesheet" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark bg-site">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="registration.html">新規登録</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#" data-toggle="modal" data-target="#myModal">ログイン</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic cart" href="cart.html"><i class="fas fa-cart-arrow-down"></i></a>
-              </li>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Fashion Center ウニクロ</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+  <link href="css/bootstrap_edit.css" rel="stylesheet">
+  <link href="css/slick-theme.css" rel="stylesheet">
+  <link href="css/slick-theme.css" rel="stylesheet">
+  <link href="css/slick.css" rel="stylesheet">
+  <link href="css/pure-drawer.css" rel="stylesheet">
+  <link href="css/pure-drawer_edit.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="js/slick.min.js"></script>
+</head>
+
+<body>
+  <div class="pure-container" data-effect="pure-effect-slide">
+    <input type="checkbox" id="pure-toggle-left" class="pure-toggle" data-toggle="left" />
+    <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left"><span class="pure-toggle-icon"></span></label>
+    <nav class="pure-drawer" data-position="left">
+      <div class="menu_wrap">
+        <div class="list-group list-group-flush">
+          <a href="" class="list-group-item text-dark">All</a>
+          <div class="list-group-item gothic pointer">Men</div>
+          <ul class="list-group none p-3">
+            <li><a href="" class="text-site">商品一覧</a></li>
+            <li class="category-3 pointer">インナー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">シャツ</a></li>
             </ul>
-            <!-- ログインモーダル -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">ログイン</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+            <li class="category-3 pointer">アウター</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジャケット</a></li>
+              <li><a href="" class="text-site">コート</a></li>
+            </ul>
+            <li class="category-3 pointer">ボトムス・靴</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジーンズ</a></li>
+              <li><a href="" class="text-site">靴</a></li>
+            </ul>
+            <li class="category-3 pointer">アクセリー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ネックレス</a></li>
+              <li><a href="" class="text-site">時計</a></li>
+              <li><a href="" class="text-site">ベルト</a></li>
+            </ul>
+          </ul>
+          <div class="list-group-item gothic pointer">Women</div>
+          <ul class="list-group none p-3">
+            <li><a href="" class="text-site">商品一覧</a></li>
+            <li class="category-3 pointer">インナー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">シャツ</a></li>
+            </ul>
+            <li class="category-3 pointer">アウター</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジャケット</a></li>
+              <li><a href="" class="text-site">コート</a></li>
+            </ul>
+            <li class="category-3 pointer">ボトムス・靴</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">靴</a></li>
+              <li><a href="" class="text-site">ジーンズ</a></li>
+            </ul>
+            <li class="category-3 pointer">アクセリー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ネックレス</a></li>
+              <li><a href="" class="text-site">時計</a></li>
+              <li><a href="" class="text-site">ベルト</a></li>
+            </ul>
+          </ul>
+          <div class="list-group-item gothic pointer">Kids</div>
+          <ul class="list-group none p-3">
+            <li><a href="" class="text-site">商品一覧</a></li>
+            <li class="category-3 pointer">インナー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">シャツ</a></li>
+            </ul>
+            <li class="category-3 pointer">アウター</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ジャケット</a></li>
+              <li><a href="" class="text-site">コート</a></li>
+            </ul>
+            <li class="category-3 pointer">ボトムス・靴</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">靴</a></li>
+              <li><a href="" class="text-site">ジーンズ</a></li>
+            </ul>
+            <li class="category-3 pointer">アクセリー</li>
+            <ul class="none">
+              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="" class="text-site">ネックレス</a></li>
+              <li><a href="" class="text-site">時計</a></li>
+              <li><a href="" class="text-site">ベルト</a></li>
+            </ul>
+          </ul>
+          <form class="form-inline list-group-item" action="item_search_result.html">
+            <input class="form-control col-10" type="text" placeholder="キーワード検索" aria-label="Search">
+            <button class="btn bg-site col-2 keysearch" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="pure-pusher-container">
+      <div class="pure-pusher">
+        <div class="inner">
+          <header class="bg-site">
+            <div class="container pt-3 pb-3">
+              <ul class="nav justify-content-end font-weight-bold">
+                <li>
+                  <a class="nav-link active text-white" href="registration.html">新規登録</a>
+                </li>
+                <li>
+                  <a class="nav-link active gothic text-white" href="#" data-toggle="modal" data-target="#myModal">ログイン</a>
+                </li>
+                <li>
+                  <a class="nav-link active gothic cart text-white" href="cart.html"><i class="fas fa-cart-arrow-down"></i></a>
+                </li>
+              </ul>
+            </div>
+          </header>
+          <div class="site_ttl">
+            <h1><a href="index.html"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
+          <main role="main" class="container">
+            <div class="sub_ttl">
+              <h3>商品名がここに入ります</h3></div>
+            <p><a href="">Home</a>&nbsp;&gt;&nbsp;<a href="">メンズ</a>&nbsp;&gt;&nbsp;<a href="">シャツ</a>&nbsp;&gt;&nbsp;<a href="">半袖</a></p>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="item_detail_img"><img src="images/img01.jpg" alt=""></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="display:table;">
+                  <p>商品紹介テキスト商品紹介テキスト商品紹介テキスト<br>商品紹介テキスト商品紹介テキスト商品紹介テキスト</p>
+                  <p class="price_before">
+                    <span class="line_through">5,650円<span class="tax">（税込）</span></span>
+                    <span class="discount">20%OFF</span>
+                  </p>
+                  <p class="price_after price_large">4,520円<span class="tax">（税込）</span></p>
+                  <p>獲得ポイント：45ポイント</p>
+                  <div class="cart_in">
+                    <a href="cart.html"><button type="button" class="btn btn-danger">カートに入れる&nbsp;<i class="fas fa-cart-arrow-down"></i></button></a>
                   </div>
-                  <div class="modal-body">
-                    <ul class="login">
-                      <li><input type="text" name="mail" placeholder="ご登録メールアドレス"></li>
-                      <li><input type="password" name="password" placeholder="パスワード"></li>
-                    </ul>
-                    <div class="text-center"><a class="btn btn-primary" href="mypage_top.html" role="button">ログイン</a></div>
+                  <div class="like_plus">
+                    <a href="mypage_like.html"><button type="button" class="btn btn-primary">お気に入りに追加する&nbsp;<i class="fas fa-star"></i></button></a>
                   </div>
                 </div>
               </div>
             </div>
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item nav_all">
-                <a  class="nav-link active gothic" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
-              </li>
-              <ul class="none">
-                  <li><a class="dropdown-item" href="#">シャツ</a></li>
-                  <li><a class="dropdown-item" href="#">ボトムス</a></li>
-                  <li><a class="dropdown-item" href="#">インナー</a></li>
-                  <li><a class="dropdown-item" href="#">アウター</a></li>
-                  <li><a class="dropdown-item" href="#">シューズ</a></li>
-              </ul>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Men</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Women</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Kids</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#">Accessories</a>
-              </li>
+          </main>
+          <footer>
+            <div class="bg-site">
+              <div class="footer_inner">
+                <p class="text-center"><a href="master_top.html" class="text-white">管理者TOP</a></p>
+                <p class="copy">&copy;Fashion Center ウニクロ All Rights Reserved.</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <label class="pure-overlay" for="pure-toggle-left" data-overlay="left"></label>
+    <!-- ログインモーダル -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="exampleModalLabel">ログイン</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+      <span aria-hidden="true">&times;</span>
+    </button>
+          </div>
+          <div class="modal-body">
+            <ul class="login">
+              <li><input type="text" name="mail" placeholder="ご登録メールアドレス"></li>
+              <li><input type="password" name="password" placeholder="パスワード"></li>
             </ul>
-            <form class="form-inline mr-3 mt-md-0" action="item_search_result.html">
-              <input class="form-control mr-sm-2" type="text" placeholder="キーワード検索" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <div class="site_ttl"><h1><a href="index.html"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
-    <div class="sub_ttl"><h3>商品名がここに入ります</h3></div>
-    <main role="main" class="container">
-      <p><a href="">Home</a>&nbsp;&gt;&nbsp;<a href="">メンズ</a>&nbsp;&gt;&nbsp;<a href="">シャツ</a>&nbsp;&gt;&nbsp;<a href="">半袖</a></p>
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="item_detail_img"><img src="images/img01.jpg" alt=""></div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="display:table;">
-            <p>商品紹介テキスト商品紹介テキスト商品紹介テキスト<br>商品紹介テキスト商品紹介テキスト商品紹介テキスト</p>
-            <p class="price_before">
-              <span class="line_through">5,650円<span class="tax">（税込）</span></span>
-              <span class="discount">20%OFF</span>
-            </p>
-            <p class="price_after price_large">4,520円<span class="tax">（税込）</span></p>
-            <p>獲得ポイント：45ポイント</p>
-            <div class="cart_in">
-              <a href="cart.html"><button type="button" class="btn btn-danger">カートに入れる&nbsp;<i class="fas fa-cart-arrow-down"></i></button></a>
-            </div>
-            <div class="like_plus">
-              <a href="mypage_like.html"><button type="button" class="btn btn-primary">お気に入りに追加する&nbsp;<i class="fas fa-star"></i></button></a>
-            </div>
+            <div class="text-center"><a class="btn btn-primary" href="mypage_top.html" role="button">ログイン</a></div>
           </div>
         </div>
       </div>
-    </main>
-    <footer>
-      <div class="bg-site">
-        <div class="footer_inner">
-          <p class="copy">&copy;Fashion Center ウニクロ All Rights Reserved.</p>
-        </div>
-      </div>
-    </footer>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $('.nav_all').click(function() {
-        $(this).next().slideToggle();
-    })
-    </script>
-  </body>
+    </div>
+  </div>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('.menu_wrap .list-group-item').click(function() {
+        $(this).next().slideToggle('fast');
+      });
+    });
+    $(function() {
+      $('.menu_wrap .category-3').click(function() {
+        $(this).next().slideToggle('fast');
+      });
+    });
+  </script>
+</body>
+
 </html>

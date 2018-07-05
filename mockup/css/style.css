@@ -1,12 +1,20 @@
 ul {
 	list-style-type: none;
 }
+.pointer {
+	cursor: pointer;
+}
 @font-face {
 	font-family: 'centurygothic';
 	src: url('centurygothic.woff') format('woff'), /* woff - Modern Browsers */
 	     url('centurygothic.ttf')  format('truetype'), /* ttf - Safari, Android, iOS */
 }
 /* header */
+header {
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
 .cart {
 	padding-top: .1em;
 	font-size: 20px;
@@ -30,13 +38,22 @@ ul.login li input {
 .bg-site {
   background: #f7a809;
 }
+.text-site {
+  color: #f7a809;
+}
+.text-site:hover {
+  color: #f7a809;
+}
+.keysearch {
+	padding-left: 12px;
+}
 .test_img {
   height: 100%;
   weight: 100%;
   background: #ccc;
 }
 .site_ttl {
-  padding: 20px 0;
+	padding: 100px 0 30px 0;
 }
 .site_ttl h1 {
   text-align: center;

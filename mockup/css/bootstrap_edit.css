@@ -32,18 +32,18 @@
   border: 1px solid #fff;
   border-radius: 0;
 }
-.navbar .nav-link {
+.menu_wrap .nav-link {
   font-weight: bold;
 }
 /* 検索Box */
-.navbar .form-control {
+.menu_wrap .form-control {
   border-radius: 0;
   background: #fff;
-  border: 1px solid #fff;
   margin: 0 !important;
 }
-.navbar .btn {
+.menu_wrap .btn {
   border-radius: 0;
+  color: #fff;
 }
 /* col */
 .col img {
