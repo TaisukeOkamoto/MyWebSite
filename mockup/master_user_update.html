@@ -22,37 +22,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="registration.html">新規登録</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic" href="#" data-toggle="modal" data-target="#myModal">ログイン</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active gothic cart" href="cart.html"><i class="fas fa-cart-arrow-down"></i></a>
-              </li>
-            </ul>
-            <!-- ログインモーダル -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">ログイン</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <ul class="login">
-                      <li><input type="text" name="mail" placeholder="ご登録メールアドレス"></li>
-                      <li><input type="password" name="password" placeholder="パスワード"></li>
-                    </ul>
-                    <div class="text-center"><a class="btn btn-primary" href="mypage_top.html" role="button">ログイン</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <ul class="navbar-nav mr-auto">
               <li class="nav-item nav_all">
                 <a  class="nav-link active gothic" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
               </li>
@@ -85,9 +54,9 @@
       </nav>
     </header>
     <div class="site_ttl"><h1><a href="index.html"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
-    <div class="sub_ttl"><h3>登録情報変更</h3></div>
+    <div class="sub_ttl"><h3>ユーザー情報変更</h3></div>
     <main role="main" class="container">
-      <form class="registration_form" action="mypage_top.html" method="post">
+      <form class="registration_form" action="master_top.html" method="post">
         <div class="form-group row">
           <label for="lgFormGroupInput" class="col-sm-3 col-form-label col-form-label-lg">名前</label>
           <div class="col">
@@ -195,6 +164,7 @@
     <footer>
       <div class="bg-site">
         <div class="footer_inner">
+          <p class="text-center"><a href="master_top.html" class="text-white">管理者TOP</a></p>
           <p class="copy">&copy;Fashion Center ウニクロ All Rights Reserved.</p>
         </div>
       </div>

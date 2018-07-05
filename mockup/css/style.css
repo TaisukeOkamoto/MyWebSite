@@ -229,3 +229,14 @@ footer {
 .registration_form .col-form-label-lg {
 	font-size: 1rem;
 }
+/* master_user_list */
+@media screen and (min-width: 769px){
+	.user_search_form {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+.rotate180 {
+	display: inline-block;
+	transform: rotate(90deg);
+}

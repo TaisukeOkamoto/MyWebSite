@@ -62,13 +62,15 @@
               <li class="nav-item nav_all">
                 <a  class="nav-link active gothic" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</a>
               </li>
-              <ul class="none">
+              <div class="none">
+                <ul>
                   <li><a class="dropdown-item" href="#">シャツ</a></li>
                   <li><a class="dropdown-item" href="#">ボトムス</a></li>
                   <li><a class="dropdown-item" href="#">インナー</a></li>
                   <li><a class="dropdown-item" href="#">アウター</a></li>
                   <li><a class="dropdown-item" href="#">シューズ</a></li>
-              </ul>
+                </ul>
+              </div>
               <li class="nav-item">
                 <a class="nav-link active gothic" href="#">Men</a>
               </li>
@@ -82,7 +84,7 @@
                 <a class="nav-link active gothic" href="#">Accessories</a>
               </li>
             </ul>
-            <form class="form-inline mr-3 mt-md-0">
+            <form class="form-inline mr-3 mt-md-0" action="item_search_result.html">
               <input class="form-control mr-sm-2" type="text" placeholder="キーワード検索" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
             </form>
@@ -199,9 +201,11 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
-    $('.nav_all').click(function() {
-        $(this).next().slideToggle();
-    })
+    $(function(){
+      $('.nav_all').click(function(){
+        $(this).next().slideToggle('fast');
+      });
+    });
     </script>
   </body>
 </html>
