@@ -1,6 +1,10 @@
 ul {
 	list-style-type: none;
 }
+:focus {
+  box-shadow: none;
+	outline: 0;
+}
 .pointer {
 	cursor: pointer;
 }
@@ -8,6 +12,21 @@ ul {
 	font-family: 'centurygothic';
 	src: url('centurygothic.woff') format('woff'), /* woff - Modern Browsers */
 	     url('centurygothic.ttf')  format('truetype'), /* ttf - Safari, Android, iOS */
+}
+/* トップページfade */
+.inviewfadeIn {
+	opacity: 0;
+	transition: .8s;
+	-moz-transition: .8s;
+	-webkit-transition: .8s;
+	-o-transition: .8s;
+}
+.fade_in {
+	opacity: 1;
+	transition: .8s;
+	-moz-transition: .8s;
+	-webkit-transition: .8s;
+	-o-transition: .8s;
 }
 /* header */
 header {
@@ -77,6 +96,7 @@ ul.login li input {
   width: 100%;
 }
 .items img {
+	width: 100%;
   padding: 0 0 10px 0;
 }
 .items p {
