@@ -123,7 +123,7 @@
             <div class="container pt-3 pb-3">
               <ul class="nav justify-content-end font-weight-bold">
                 <li>
-                  <a class="nav-link active text-white" href="registration.html">新規登録</a>
+                  <a class="nav-link active text-white" href="Registration">新規登録</a>
                 </li>
                 <li>
                   <a class="nav-link active gothic text-white" href="" data-toggle="modal" data-target="#myModal">ログイン</a>

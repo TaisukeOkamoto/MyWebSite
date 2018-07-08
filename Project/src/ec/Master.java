@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Master
@@ -28,9 +29,21 @@ public class Master extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/master_top.jsp");
-		dispatcher.forward(request, response);
-		return;
+		HttpSession session = request.getSession();
+
+		Integer userId = (Integer) session.getAttribute("userId");
+
+		 if(userId == null) {
+			response.sendRedirect("Index");
+			return;
+		} else if(userId == 1) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/master_top.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("Index");
+			return;
+		}
+
 	}
 
 	/**

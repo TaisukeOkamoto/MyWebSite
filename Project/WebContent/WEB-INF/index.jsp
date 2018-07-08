@@ -5,7 +5,8 @@
 <link href="css/slick-theme.css" rel="stylesheet">
 <link href="css/slick-theme.css" rel="stylesheet">
 <link href="css/slick.css" rel="stylesheet">
-<div class="site_ttl inviewfadeIn"><h1><a href="index.html"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
+<div class="site_ttl inviewfadeIn"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
+${LoginErrMsg}
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

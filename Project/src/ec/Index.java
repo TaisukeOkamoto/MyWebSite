@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Index
@@ -28,6 +29,21 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		Integer userId = (Integer) session.getAttribute("userId");
+		session.removeAttribute("LoginErrMsg");
+
+		if(userId == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/index.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+		if(userId == 0) {
+			request.setAttribute("LoginErrMsg", "メールアドレスまたはパスワードが違います。");
+			session.removeAttribute("userId");
+		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/index.jsp");
 		dispatcher.forward(request, response);
 	}
