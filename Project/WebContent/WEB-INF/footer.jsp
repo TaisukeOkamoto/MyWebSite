@@ -3,7 +3,6 @@
         <footer id="footer">
             <div class="bg-site">
               <div class="footer_inner">
-                <p class="text-center"><a href="master_top.html" class="text-white">管理者TOP</a></p>
                 <p class="copy">&copy;Fashion Center ウニクロ All Rights Reserved.</p>
               </div>
             </div>

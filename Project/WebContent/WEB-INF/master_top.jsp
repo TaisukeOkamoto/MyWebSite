@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ include file="header.jsp"%>
+<%@ include file="master_header.jsp"%>
  <main role="main" class="container">
-  <div class="site_ttl"><h1><a href="index.html"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
+  <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
    <div class="sub_ttl">
      <h3>管理者ページ</h3></div>
    <div class="row">
