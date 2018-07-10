@@ -15,7 +15,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" rel="stylesheet" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="js/footerFixed.js" type="text/javascript"></script>
 </head>
   <body>
     <div class="pure-container" data-effect="pure-effect-slide">

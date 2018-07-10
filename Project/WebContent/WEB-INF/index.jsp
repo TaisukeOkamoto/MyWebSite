@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ include file="header.jsp"%>
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:choose>
+<c:when test="${userId != null && userId != 0}">
+<%@ include file="include/user_header.jsp"%>
+</c:when>
+<c:otherwise>
+<%@ include file="include/header.jsp"%>
+</c:otherwise>
+</c:choose>
 <link href="css/slick-theme.css" rel="stylesheet">
 <link href="css/slick-theme.css" rel="stylesheet">
 <link href="css/slick.css" rel="stylesheet">
@@ -79,7 +87,7 @@ ${LoginErrMsg}
    <main role="main" class="container">
      <div class="btn_type01 inviewfadeIn"><a href="new_item_list.html"><button type="button" class="btn btn-primary">新商品一覧</button></a></div>
    </main>
-<%@ include file="footer.jsp"%>
+<%@ include file="include/footer.jsp"%>
   <script>
   $(function() {
      // フェードイン

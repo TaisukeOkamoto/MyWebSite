@@ -5,8 +5,8 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="beans.UserInfoBeans" %>
 <!DOCTYPE html>
-<%@ include file="include/header.jsp"%>
-          <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
+<%@ include file="include/master_header.jsp"%>
+          <div class="site_ttl"><h1><a href="Master"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
           <main role="main" class="container">
               <p class="text-danger text-center font-weight-bold">
               ${memberCheckErr}
@@ -16,7 +16,7 @@
               ${differentMailErr}
               ${StringPhoneNumberErr}
               ${StringAddressNumberErr}
-             ${OverlapMailErr}}
+             ${OverlapMailErr}
               </p>
             <div class="sub_ttl">
               <h3>新規会員登録</h3></div>
@@ -195,15 +195,9 @@
                   <input name="passwordConfirm" type="password" class="form-control" placeholder="確認用パスワード" required>
                 </div>
               </div>
-              <div class="form-group form-check">
-                <div class="text-center">
-                  <input name="check" type="checkbox" class="form-check-input" id="Check1" required>
-                  <label class="form-check-label" for="Check1">会員規約に同意しますか</label>
-                  <p><a href="">会員規約（必ずお読みください）</a></p>
-                </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary">登録確認</button>
+                <button type="submit" class="btn btn-primary">変更を保存</button>
               </div>
             </form>
           </main>

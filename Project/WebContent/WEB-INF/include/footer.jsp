@@ -36,6 +36,7 @@
   </div>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/footerFixed.js" type="text/javascript"></script>
   <script src="js/mysite.js"></script>
   </body>
 </html>

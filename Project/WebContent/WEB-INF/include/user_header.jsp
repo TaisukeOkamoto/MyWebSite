@@ -15,7 +15,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" rel="stylesheet" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="js/footerFixed.js" type="text/javascript"></script>
 </head>
   <body>
     <div class="pure-container" data-effect="pure-effect-slide">
@@ -122,7 +121,12 @@
           <header class="bg-site">
             <div class="container pt-3 pb-3">
               <ul class="nav justify-content-end font-weight-bold">
-                <li class="text-white">管理者ページ</li>
+                <li>
+                  <a class="nav-link active text-white" href="Mypage">マイページ</a>
+                </li>
+                <li>
+                  <a class="nav-link active gothic cart text-white" href="cart.html"><i class="fas fa-cart-arrow-down"></i></a>
+                </li>
               </ul>
             </div>
           </header>

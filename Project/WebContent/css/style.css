@@ -35,7 +35,7 @@ header {
 	z-index: 1000;
 }
 .cart {
-	font-size: 20px;
+	font-size: 16px;
 }
 ul.login {
 	padding: 0;
@@ -153,6 +153,8 @@ footer {
 	font-size: 12px;
 	color: #fff;
 	margin: 0;
+}
+footer{
 }
 /* subpage */
 .sub_ttl {

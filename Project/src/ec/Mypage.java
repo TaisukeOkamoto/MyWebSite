@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Master
+ * Servlet implementation class Mypage
  */
-@WebServlet("/Master")
-public class Master extends HttpServlet {
+@WebServlet("/Mypage")
+public class Mypage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Master() {
+    public Mypage() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,18 +29,18 @@ public class Master extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		//エンコーディング設定
+		request.setCharacterEncoding("UTF-8");
 
+		HttpSession session = request.getSession();
 		Integer userId = (Integer) session.getAttribute("userId");
 
-		 if(userId == null || userId != 1) {
+		if(userId == null || userId == 0) {
 			response.sendRedirect("Index");
-			return;
-		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/master_top.jsp");
-			dispatcher.forward(request, response);
 		}
 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mypage_top.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

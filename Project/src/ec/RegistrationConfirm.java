@@ -1,7 +1,9 @@
 package ec;
 
+
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDao;
+import beans.UserInfoBeans;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class RegistrationConfirm
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/RegistrationConfirm")
+public class RegistrationConfirm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public RegistrationConfirm() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,32 +32,24 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		HttpSession session = request.getSession();
+		UserInfoBeans user = (UserInfoBeans) session.getAttribute("user");
+		if(user != null) {
+			request.setAttribute("user", user);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration_confirm.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("Index");
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//エンコーディング設定
-		request.setCharacterEncoding("UTF-8");
-
-		String mail = request.getParameter("mail");
-		String password = request.getParameter("password");
-		int userId = UserDao.getUserId(mail,password);
-		HttpSession session = request.getSession();
-
-		if(userId == 1) {
-			session.setAttribute("userId", userId);
-			response.sendRedirect("Master");
-		} else if(userId == 0) {
-			session.setAttribute("userId", userId);
-			response.sendRedirect("Index");
-		} else {
-			session.setAttribute("userId", userId);
-			response.sendRedirect("Mypage");
-		}
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

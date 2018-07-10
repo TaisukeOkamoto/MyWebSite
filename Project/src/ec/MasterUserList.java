@@ -1,6 +1,8 @@
 package ec;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,17 +12,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.UserInfoBeans;
+import dao.UserDao;
+
 /**
- * Servlet implementation class Master
+ * Servlet implementation class MasterUserList
  */
-@WebServlet("/Master")
-public class Master extends HttpServlet {
+@WebServlet("/MasterUserList")
+public class MasterUserList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Master() {
+    public MasterUserList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,15 +34,17 @@ public class Master extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//管理者IDがセッションに保存されていなければトップページへリダイレクト、保存されていれば次の処理へ
 		HttpSession session = request.getSession();
-
 		Integer userId = (Integer) session.getAttribute("userId");
-
 		 if(userId == null || userId != 1) {
 			response.sendRedirect("Index");
 			return;
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/master_top.jsp");
+			//ユーザー全員を取得して引き渡し
+			ArrayList<UserInfoBeans> userList = UserDao.getAllUserList();
+			session.setAttribute("userList", userList);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/master_user_list.jsp");
 			dispatcher.forward(request, response);
 		}
 

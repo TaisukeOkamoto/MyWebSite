@@ -1,9 +1,7 @@
 package ec;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import beans.UserInfoBeans;
 import dao.UserDao;
 
 /**
@@ -43,6 +43,9 @@ public class Registration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//エンコーディング設定
 		request.setCharacterEncoding("UTF-8");
+
+		HttpSession session = request.getSession();
+
 		 String familyName = request.getParameter("familyName");
 		 String firstName = request.getParameter("firstName");
 		 String strAddress = request.getParameter("address");
@@ -60,24 +63,13 @@ public class Registration extends HttpServlet {
 		 String passwordConfirm = request.getParameter("passwordConfirm");
 		 String check = request.getParameter("check");
 
-		 request.setAttribute("familyName", familyName);
-		 request.setAttribute("firstName", firstName);
-		 request.setAttribute("strAddress", strAddress);
-		 request.setAttribute("prefecture", prefecture);
-		 request.setAttribute("city", city);
-		 request.setAttribute("street", street);
-		 request.setAttribute("strPhoneNumber", strPhoneNumber);
-		 request.setAttribute("year", year);
-		 request.setAttribute("month", month);
-		 request.setAttribute("day", day);
-		 request.setAttribute("gender", gender);
-		 request.setAttribute("mail", mail);
-		 request.setAttribute("mailConfirm", mailConfirm);
-		 request.setAttribute("familyName", familyName);
-
 		 //電話番号と郵便番号を初期化
 		 int phoneNumber = 0;
 		 int address = 0;
+
+		 //パラメータの値をセッションスコープuserとして引き渡し
+		UserInfoBeans user = new UserInfoBeans(familyName, firstName, address, prefecture, city, street, phoneNumber, year, month, day, mail, gender, password, 0);
+		session.setAttribute("user", user);
 
 		//未入力の時
 		 if(familyName.equals("")||firstName.equals("")||strAddress.equals("")||strAddress.equals("")||prefecture.equals("")||city.equals("")||street.equals("")||strPhoneNumber.equals("")||gender == null||mail.equals("")||mailConfirm.equals("")||password.equals("")||passwordConfirm.equals("")||check == null) {
@@ -93,6 +85,17 @@ public class Registration extends HttpServlet {
 			dispatcher.forward(request, response);
 			return;
 		 }
+		 try {
+			if(UserDao.isOverlapMail(mail) == true) {
+				request.setAttribute("OverlapMailErr", "メールアドレスはすでに使用されています。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
+				dispatcher.forward(request, response);
+				return;
+			 }
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		//パスワードと確認用パスワードが異なる時
 		 if(!password.equals(passwordConfirm)) {
 			request.setAttribute("differentPasswordErr", "パスワードと確認用パスワードが異なります。");
@@ -101,7 +104,7 @@ public class Registration extends HttpServlet {
 			return;
 		 }
 		//メールアドレスと確認用メールアドレスが異なる時
-		 if(!password.equals(passwordConfirm)) {
+		 if(!mail.equals(mailConfirm)) {
 			request.setAttribute("differentMailErr", "メールアドレスと確認用メールアドレスが異なります。");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
 			dispatcher.forward(request, response);
@@ -110,8 +113,9 @@ public class Registration extends HttpServlet {
 		//電話番号をint型に変換できれば変換、できなければエラーメッセージ
 		 if(ECHelper.isNum(strPhoneNumber)) {
 			phoneNumber = Integer.parseInt(strPhoneNumber);
+			user.setPhoneNumber(phoneNumber);
 		 } else {
-			request.setAttribute("StringPhoneNumberErr", "電話番号は数値で入力してください。");
+			request.setAttribute("StringPhoneNumberErr", "電話番号は半角数字で入力してください。");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
 			dispatcher.forward(request, response);
 			return;
@@ -119,8 +123,17 @@ public class Registration extends HttpServlet {
 		//郵便番号をint型に変換できれば変換、できなければエラーメッセージ
 		 if(ECHelper.isNum(strAddress)) {
 			address = Integer.parseInt(strAddress);
+			user.setAddress(address);
+			int addressNumberLength = String.valueOf(address).length();
+			//郵便番号が7桁でなければエラーメッセージ
+			if(addressNumberLength != 7) {
+				request.setAttribute("StringAddressNumberErr", "郵便番号は7桁の半角数字で入力してください。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
+				dispatcher.forward(request, response);
+				return;
+			}
 		 } else {
-			request.setAttribute("StringAddressNumberErr", "郵便番号は数値で入力してください。");
+			request.setAttribute("StringAddressNumberErr", "郵便番号は7桁の数値で入力してください。");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
 			dispatcher.forward(request, response);
 			return;
@@ -132,20 +145,8 @@ public class Registration extends HttpServlet {
 			dispatcher.forward(request, response);
 			return;
 		 }
-
-		//String型の生年月日をDate型に変換
-		 String strbirthDate = year + "/" + month + "/" + day;
-         SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
-         Date birthDate;
-
-		try {
-			birthDate = sdFormat.parse(strbirthDate);
-			UserDao.setUserInfo(familyName, firstName, address, prefecture, city, street, phoneNumber, birthDate, mail, gender, password);
-		} catch (ParseException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-
+		//確認画面へリダイレクト
+		response.sendRedirect("RegistrationConfirm");
 	}
 
 }

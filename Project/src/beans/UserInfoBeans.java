@@ -1,9 +1,10 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
-public class UserInfoBean implements Serializable {
+public class UserInfoBeans implements Serializable {
  private int id;
  private String familyName;
  private String firstName;
@@ -13,16 +14,37 @@ public class UserInfoBean implements Serializable {
  private String street;
  private int phoneNumber;
  private Date birthDate;
+ private String birthYear;
+ private String birthMonth;
+ private String birthDay;
  private String mail;
  private String gender;
  private String password;
  private Date userCreateDate;
  private Date userUpdateDate;
  private int userPoint;
+ private ArrayList<UserInfoBeans> userList;
 
 
-	public UserInfoBean(){
+	public UserInfoBeans(String familyName,String firstName,int address,String prefecture,String city,String street,int phoneNumber,String birthYear,String birthMonth,String birthDay,String mail,String gender,String password,int userPoint){
+		this.familyName = familyName;
+		this.firstName = firstName;
+		this.address = address;
+		this.prefecture = prefecture;
+		this.city = city;
+		this.street = street;
+		this.phoneNumber = phoneNumber;
+		this.birthYear = birthYear;
+		this.birthMonth = birthMonth;
+		this.birthDay = birthDay;
+		this.mail = mail;
+		this.gender = gender;
+		this.password = password;
+		this.userPoint = userPoint;
+	}
 
+	public UserInfoBeans() {
+		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public int getId() {
@@ -114,6 +136,38 @@ public class UserInfoBean implements Serializable {
 	}
 	public void setUserPoint(int userPoint) {
 		this.userPoint = userPoint;
+	}
+
+	public String getBirthYear() {
+		return birthYear;
+	}
+
+	public void setBirthYear(String birthYear) {
+		this.birthYear = birthYear;
+	}
+
+	public String getBirthMonth() {
+		return birthMonth;
+	}
+
+	public void setBirthMonth(String birthMonth) {
+		this.birthMonth = birthMonth;
+	}
+
+	public String getBirthDay() {
+		return birthDay;
+	}
+
+	public void setBirthDay(String birthDay) {
+		this.birthDay = birthDay;
+	}
+
+	public ArrayList<UserInfoBeans> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(ArrayList<UserInfoBeans> userList) {
+		this.userList = userList;
 	}
 
 }
