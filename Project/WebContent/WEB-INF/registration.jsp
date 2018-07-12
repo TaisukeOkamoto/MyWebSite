@@ -16,7 +16,7 @@
               ${differentMailErr}
               ${StringPhoneNumberErr}
               ${StringAddressNumberErr}
-             ${OverlapMailErr}}
+             ${OverlapMailErr}
               </p>
             <div class="sub_ttl">
               <h3>新規会員登録</h3></div>

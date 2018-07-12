@@ -20,7 +20,7 @@
               </p>
             <div class="sub_ttl">
               <h3>新規会員登録</h3></div>
-            <form class="registration_form" action="Registration" method="post">
+            <form class="registration_form" action="MasterUserUpdate" method="post">
               <div class="form-group row">
                 <label for="lgFormGroupInput" class="col-sm-3 col-form-label col-form-label-lg">名前</label>
                 <div class="col">
@@ -126,8 +126,8 @@
             	  </select>
                 </div>
                 <div class="form-group col-sm-3">
-                  <select name="month" id="inputState" class="form-control" value="${month}" required>
-		              <option value="" selected>月</option>
+                  <select name="month" id="inputState" class="form-control" required>
+		              <option value="">月</option>
 		              <%-- 01〜12までを取得 --%>
 		              <%
 	              		String strMonth;
@@ -142,7 +142,7 @@
             	  </select>
                 </div>
                 <div class="form-group col-sm-3">
-                  <select name="day" id="inputState" class="form-control" value="${day}" required>
+                  <select name="day" id="inputState" class="form-control" required>
               		  <option value="">日</option>
               		  <%-- 01〜31までを取得 --%>
 		              <%

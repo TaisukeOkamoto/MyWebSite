@@ -11,7 +11,7 @@
        <ul>
          <li><a href="Master">管理者ページトップ</a></li>
          <li><a href="master_item_list.html">全商品一覧</a></li>
-         <li><a href="master_item_registration.html">新規商品登録</a></li>
+         <li><a href="MasterItemRegistration">新規商品登録</a></li>
          <li><a href="MasterUserList">ユーザ一覧</a></li>
          <li><a href="Logout">ログアウト</a></li>
        </ul>

@@ -1,0 +1,113 @@
+package beans;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class ItemInfoBeans implements Serializable {
+	private int id;
+	private String itemName;
+	private String itemDetail;
+	private int priceWithTax;
+	private String fileName;
+	private int categoryId;
+	private java.util.Date itemCreateDate;
+	private java.util.Date itemUpdateDate;
+	private int rate;
+	public ArrayList<ItemInfoBeans> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(ArrayList<ItemInfoBeans> itemList) {
+		this.itemList = itemList;
+	}
+
+	private ArrayList <ItemInfoBeans> itemList;
+
+	public ItemInfoBeans(int id,String itemName,String itemDetail,int priceWithTax,String fileName,int categoryId,java.util.Date itemCreateDate,java.util.Date itemUpdateDate,int rate){
+		this.id = id;
+		this.itemName = itemName;
+		this.itemDetail = itemDetail;
+		this.priceWithTax = priceWithTax;
+		this.fileName = fileName;
+		this.categoryId = categoryId;
+		this.itemCreateDate = itemCreateDate;
+		this.itemUpdateDate = itemUpdateDate;
+		this.rate = rate;
+	}
+
+	public ItemInfoBeans() {
+
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public String getItemDetail() {
+		return itemDetail;
+	}
+
+	public void setItemDetail(String itemDetail) {
+		this.itemDetail = itemDetail;
+	}
+
+	public int getPriceWithTax() {
+		return priceWithTax;
+	}
+
+	public void setPriceWithTax(int priceWithTax) {
+		this.priceWithTax = priceWithTax;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public java.util.Date getItemCreateDate() {
+		return itemCreateDate;
+	}
+
+	public void setItemCreateDate(java.util.Date itemCreateDate) {
+		this.itemCreateDate = itemCreateDate;
+	}
+
+	public java.util.Date getItemUpdateDate() {
+		return itemUpdateDate;
+	}
+
+	public void setItemUpdateDate(java.util.Date itemUpdateDate) {
+		this.itemUpdateDate = itemUpdateDate;
+	}
+
+	public int getRate() {
+		return rate;
+	}
+
+	public void setRate(int rate) {
+		this.rate = rate;
+	}
+}

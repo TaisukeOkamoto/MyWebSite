@@ -9,6 +9,7 @@ import java.util.Date;
 
 import base.DBManager;
 import beans.UserInfoBeans;
+import ec.ECHelper;
 
 public class UserDao {
 
@@ -119,7 +120,7 @@ public class UserDao {
 
 			st.executeUpdate();
 
-			System.out.println("Inserting userInfo has been completed");
+			System.out.println("Setting userInfo has been completed");
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
@@ -174,7 +175,7 @@ public class UserDao {
 	}
 
 	/**
-	 * 全てのユーザーをリスト形式で保存
+	 * 管理者を除く全てのユーザーをリスト形式で保存
 	 * @return <UserInfoBeans>
 	 */
 	public static ArrayList<UserInfoBeans> getAllUserList() {
@@ -211,7 +212,7 @@ public class UserDao {
 				userList.add(user);
 			}
 
-			System.out.println("getAllUser completed");
+			System.out.println("getAllUser has been completed");
 
 			return userList;
 
@@ -239,7 +240,7 @@ public class UserDao {
 	 * @return UserInfoBeans
 	 * @throws SQLException
 	 */
-	public static UserInfoBeans getUserInfoBeansByUserId(int Id) throws SQLException {
+	public static UserInfoBeans getUserInfoBeansByUserId(int id) throws SQLException {
 		UserInfoBeans user = new UserInfoBeans();
 		Connection conn = null;
 		PreparedStatement st = null;
@@ -247,7 +248,7 @@ public class UserDao {
 			conn = DBManager.getConnection();
 			st = conn.prepareStatement("SELECT * FROM user_info WHERE id = ?");
 
-			st.setInt(1, Id);
+			st.setInt(1, id);
 
 			ResultSet rs = st.executeQuery();
 
@@ -262,11 +263,16 @@ public class UserDao {
 				user.setPhoneNumber(rs.getInt("phone_number"));
 				Date BirthDate = rs.getDate("birth_date");
 				user.setBirthDate(BirthDate);
-				//誕生日を年、月、日にわける処理をする
-				次はここからすすめる（わざとエラー）
+				//誕生日を年、月、日にわける
 				SimpleDateFormat sdfYear = new SimpleDateFormat("yyyy");
-				sdfYear.format(BirthDate.getTime());
-
+				String year = sdfYear.format(BirthDate.getTime());
+				SimpleDateFormat sdfMonth = new SimpleDateFormat("MM");
+				String month = sdfMonth.format(BirthDate.getTime());
+				SimpleDateFormat sdfDay = new SimpleDateFormat("dd");
+				String day = sdfDay.format(BirthDate.getTime());
+				user.setBirthYear(year);
+				user.setBirthMonth(month);
+				user.setBirthDay(day);
 				user.setMail(rs.getString("mail"));
 				user.setGender(rs.getString("gender"));
 				user.setPassword(rs.getString("password"));
@@ -289,5 +295,95 @@ public class UserDao {
 		System.out.println("searching UserInfoBeans by Id has been completed");
 		return user;
 	}
+
+
+	/**
+	 * ユーザー情報とユーザーインスタンスからユーザー情報を更新
+	 * @param id
+	 * 		ユーザーID
+	 * @param user
+	 * 		ユーザーインスタンス
+	 * @throws SQLException
+	 */
+	public static void updateUserInfoBeansByUserId(int id,UserInfoBeans user) throws SQLException {
+		Connection conn = null;
+		PreparedStatement st = null;
+		try {
+			conn = DBManager.getConnection();
+			st = conn.prepareStatement("UPDATE user_info" +
+					" SET family_name = ?," +
+					" first_name = ?," +
+					" address = ?," +
+					" prefecture = ?," +
+					" city = ?," +
+					" street = ?," +
+					" phone_number = ?," +
+					" birth_date = ?," +
+					" mail = ?," +
+					" gender = ?," +
+					" password = ?," +
+					" user_update_date = Now()" +
+					" WHERE id = ?");
+
+			st.setString(1, user.getFamilyName());
+			st.setString(2, user.getFirstName());
+			st.setInt(3, user.getAddress());
+			st.setString(4, user.getPrefecture());
+			st.setString(5, user.getCity());
+			st.setString(6, user.getStreet());
+			st.setInt(7, user.getPhoneNumber());
+			//年、月、日を結合してsql型のyyyy/MM/dd形式に変換
+			java.sql.Date BirthDate = ECHelper.CovertSqlDateYMD(user.getBirthYear(), user.getBirthMonth(), user.getBirthDay());
+			st.setDate(8, BirthDate);
+			st.setString(9, user.getMail());
+			st.setString(10, user.getGender());
+			st.setString(11, user.getPassword());
+			st.setInt(12, id);
+
+			st.executeUpdate();
+
+			st.close();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		System.out.println("Update UserInfoBeans by User and Id has been completed");
+	}
+
+	/**
+	 * ユーザーIDからユーザー情報を削除
+	 * @param id
+	 * 			ユーザーID
+	 * @throws SQLException
+	 */
+	public static void deleteUserInfoBeansByUserId(int id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement st = null;
+		try {
+			conn = DBManager.getConnection();
+			st = conn.prepareStatement("DELETE FROM user_info WHERE id = ?");
+
+			st.setInt(1, id);
+			st.executeUpdate();
+			st.close();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		System.out.println("Delete UserInfoBeans by Id has been completed");
+	}
+
 
 }

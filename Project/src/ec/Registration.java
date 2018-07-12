@@ -72,7 +72,7 @@ public class Registration extends HttpServlet {
 		session.setAttribute("user", user);
 
 		//未入力の時
-		 if(familyName.equals("")||firstName.equals("")||strAddress.equals("")||strAddress.equals("")||prefecture.equals("")||city.equals("")||street.equals("")||strPhoneNumber.equals("")||gender == null||mail.equals("")||mailConfirm.equals("")||password.equals("")||passwordConfirm.equals("")||check == null) {
+		 if(familyName.equals("")||firstName.equals("")||strAddress.equals("")||prefecture.equals("")||city.equals("")||street.equals("")||strPhoneNumber.equals("")||gender == null||mail.equals("")||mailConfirm.equals("")||password.equals("")||passwordConfirm.equals("")||check == null) {
 			request.setAttribute("emptyInputErr", "未入力項目があります。");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
 			dispatcher.forward(request, response);
