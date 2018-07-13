@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.ItemInfoBeans;
 import dao.ItemDao;
 
 /**
@@ -54,6 +55,8 @@ public class MasterItemRegistration extends HttpServlet {
 		//エンコーディング設定
 		request.setCharacterEncoding("UTF-8");
 
+		HttpSession session = request.getSession();
+
 		String itemName = request.getParameter("itemName");
 		String itemDetail = request.getParameter("itemDetail");
 		String fileName = request.getParameter("fileName");
@@ -67,11 +70,19 @@ public class MasterItemRegistration extends HttpServlet {
 		//Stringで受け取りint型に変換
 		String priceWithTaxStr = request.getParameter("priceWithTax");
 
+		//商品の税込価格を初期化
+		int priceWithTax = 0;
+
+		//エラーが起きても入力内容は保持する
+		ItemInfoBeans item = new ItemInfoBeans(itemName,itemDetail,priceWithTax,fileName,categoryId,rate);
+		request.setAttribute("item", item);
 
 		//商品の税込価格をint型に変換できれば変換、できなければエラーメッセージ
 		 if(ECHelper.isNum(priceWithTaxStr)) {
-			int priceWithTax = Integer.parseInt(priceWithTaxStr);
+			priceWithTax = Integer.parseInt(priceWithTaxStr);
 			ItemDao.setItemInfo(itemName, itemDetail, priceWithTax, fileName, categoryId, rate);
+			//セッションスコープに商品登録メッセージを保存
+			session.setAttribute("itemRegistrationCompleteMsg", "商品は正常に登録されました");
 			response.sendRedirect("Master");
 		 } else {
 			request.setAttribute("intItemPriceErr", "商品の税込価格は半角数字で入力してください。");

@@ -302,7 +302,7 @@ public class UserDao {
 	 * @param id
 	 * 		ユーザーID
 	 * @param user
-	 * 		ユーザーインスタンス
+	 * 		UserInfoBeans
 	 * @throws SQLException
 	 */
 	public static void updateUserInfoBeansByUserId(int id,UserInfoBeans user) throws SQLException {

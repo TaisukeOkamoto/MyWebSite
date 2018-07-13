@@ -41,9 +41,9 @@ public class Index extends HttpServlet {
 		session.removeAttribute("LoginErrMsg");
 
 		try {
-			//最新商品7件を受け渡し
-			ArrayList<ItemInfoBeans> LatestItem7List = ItemDao.getLatestItem7();
-			request.setAttribute("LatestItem7List",LatestItem7List);
+			//最新商品を受け渡し
+			ArrayList<ItemInfoBeans> latestItemList = ItemDao.getLatestItemList();
+			request.setAttribute("latestItemList",latestItemList);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

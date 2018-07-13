@@ -22,8 +22,8 @@
                   <p>${item.itemDetail}</p>
                   <p class="price_before">
                   <%--割引が0でない時のみ表示。価格は###,###形式でフォーマット--%>
-                  	<c:if test="${item.rate} != 0">
-	                    <span class="line_through"><fmt:formatNumber value="${item.priceWithTax}" pattern="###,###" /><span class="tax">（税込）</span></span>
+                  	<c:if test="${item.rate != 0}">
+	                    <span class="line_through"><fmt:formatNumber value="${item.priceWithTax}" pattern="###,###" /><span class="tax">円（税込）</span></span>
 	                    <span class="discount">${item.rate}%OFF</span>
                     </c:if>
                   </p>
@@ -42,3 +42,5 @@
             </div>
           </main>
 <%@ include file="include/footer.jsp"%>
+  </body>
+</html>

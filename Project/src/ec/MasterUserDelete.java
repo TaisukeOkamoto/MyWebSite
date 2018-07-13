@@ -31,8 +31,6 @@ public class MasterUserDelete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//エンコーディング設定
-		request.setCharacterEncoding("UTF-8");
 
 		//管理者IDがセッションに保存されていなければトップページへリダイレクト、保存されていれば次の処理へ
 		HttpSession session = request.getSession();

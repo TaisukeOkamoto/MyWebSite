@@ -39,7 +39,7 @@ public class ItemDetail extends HttpServlet {
 		int itemId = Integer.parseInt(itemIdStr);
 
 		try {
-			ItemInfoBeans item = ItemDao.getItemrInfoBeansByUserId(itemId);
+			ItemInfoBeans item = ItemDao.getItemrInfoBeansByItemId(itemId);
 			request.setAttribute("item", item);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック

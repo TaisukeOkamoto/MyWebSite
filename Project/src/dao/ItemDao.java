@@ -11,51 +11,6 @@ import beans.ItemInfoBeans;
 
 public class ItemDao {
 
-
-	/**
-	 *	最新7件の商品情報を取得
-	 * @return ItemInfoBeans
-	 * @throws SQLException
-	 */
-	public static ArrayList<ItemInfoBeans> getLatestItem7() throws SQLException {
-		ArrayList<ItemInfoBeans> LatestItem7List = new ArrayList<ItemInfoBeans>();
-		Connection conn = null;
-		PreparedStatement st = null;
-		try {
-			conn = DBManager.getConnection();
-			st = conn.prepareStatement("SELECT * FROM item ORDER BY item_update_date DESC LIMIT 7");
-
-			ResultSet rs = st.executeQuery();
-
-			while(rs.next()) {
-				ItemInfoBeans item = new ItemInfoBeans();
-				item.setId(rs.getInt("id"));
-				item.setItemName(rs.getString("item_name"));
-				item.setItemDetail(rs.getString("item_detail"));
-				item.setPriceWithTax(rs.getInt("price_with_tax"));
-				item.setFileName(rs.getString("file_name"));
-				item.setCategoryId(rs.getInt("category_id"));
-				item.setItemCreateDate(rs.getTimestamp("item_create_date"));
-				item.setItemUpdateDate(rs.getTimestamp("item_update_date"));
-				item.setRate(rs.getInt("rate"));
-				LatestItem7List.add(item);
-			}
-
-			st.close();
-
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			throw new SQLException(e);
-		} finally {
-			if (conn != null) {
-				conn.close();
-			}
-		}
-
-		System.out.println("getting LatestItem7List has been completed");
-		return LatestItem7List;
-	}
-
 	/**
 	 * 商品情報を登録
 	 * @param itemName
@@ -110,13 +65,60 @@ public class ItemDao {
 	}
 
 	/**
+	 * 商品情報と商品インスタンスから商品情報を更新
+	 * @param id
+	 * 			商品ID
+	 * @param item
+	 * 			ItemInfoBeans
+	 * @throws SQLException
+	 */
+	public static void updateItemInfoBeansByItemId(int id,ItemInfoBeans item) throws SQLException {
+		Connection conn = null;
+		PreparedStatement st = null;
+		try {
+			conn = DBManager.getConnection();
+			st = conn.prepareStatement("UPDATE item" +
+					" SET item_name = ?," +
+					" item_detail = ?," +
+					" price_with_tax = ?," +
+					" file_name = ?," +
+					" category_id = ?," +
+					" item_update_date = Now()," +
+					" rate = ?" +
+					" WHERE id = ?");
+
+			st.setString(1, item.getItemName());
+			st.setString(2, item.getItemDetail());
+			st.setInt(3, item.getPriceWithTax());
+			st.setString(4, item.getFileName());
+			st.setInt(5, item.getCategoryId());
+			st.setInt(6, item.getRate());
+			st.setInt(7, id);
+
+			st.executeUpdate();
+
+			st.close();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		System.out.println("Update ItemInfoBeans by Item and Id has been completed");
+	}
+
+	/**
 	 * 商品IDから商品情報を取得する
 	 * @param id
 	 * 		商品ID
 	 * @return ItemInfoBeans
 	 * @throws SQLException
 	 */
-	public static ItemInfoBeans getItemrInfoBeansByUserId(int id) throws SQLException {
+	public static ItemInfoBeans getItemrInfoBeansByItemId(int id) throws SQLException {
 		ItemInfoBeans item = new ItemInfoBeans();
 		Connection conn = null;
 		PreparedStatement st = null;
@@ -155,8 +157,52 @@ public class ItemDao {
 		return item;
 	}
 
+	/**
+	 *	全商品情報を取得
+	 * @return ItemInfoBeans
+	 * @throws SQLException
+	 */
+	public static ArrayList<ItemInfoBeans> getAllItemList() throws SQLException {
+		ArrayList<ItemInfoBeans> allItemList = new ArrayList<ItemInfoBeans>();
+		Connection conn = null;
+		PreparedStatement st = null;
+		try {
+			conn = DBManager.getConnection();
+			st = conn.prepareStatement("SELECT * FROM item");
+
+			ResultSet rs = st.executeQuery();
+
+			while(rs.next()) {
+				ItemInfoBeans item = new ItemInfoBeans();
+				item.setId(rs.getInt("id"));
+				item.setItemName(rs.getString("item_name"));
+				item.setItemDetail(rs.getString("item_detail"));
+				item.setPriceWithTax(rs.getInt("price_with_tax"));
+				item.setFileName(rs.getString("file_name"));
+				item.setCategoryId(rs.getInt("category_id"));
+				item.setItemCreateDate(rs.getTimestamp("item_create_date"));
+				item.setItemUpdateDate(rs.getTimestamp("item_update_date"));
+				item.setRate(rs.getInt("rate"));
+				allItemList.add(item);
+			}
+
+			st.close();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		System.out.println("getting allItemList has been completed");
+		return allItemList;
+	}
 
 	/**
+	 * 割引商品を全て取得
 	 * @return discountItemList
 	 * @throws SQLException
 	 */
@@ -197,6 +243,79 @@ public class ItemDao {
 
 		System.out.println("getting discountItemList has been completed");
 		return discountItemList;
+	}
+
+	/**
+	 *	最新商品情報を取得
+	 * @return ItemInfoBeans
+	 * @throws SQLException
+	 */
+	public static ArrayList<ItemInfoBeans> getLatestItemList() throws SQLException {
+		ArrayList<ItemInfoBeans> latestItemList = new ArrayList<ItemInfoBeans>();
+		Connection conn = null;
+		PreparedStatement st = null;
+		try {
+			conn = DBManager.getConnection();
+			st = conn.prepareStatement("SELECT * FROM item ORDER BY item_update_date DESC");
+
+			ResultSet rs = st.executeQuery();
+
+			while(rs.next()) {
+				ItemInfoBeans item = new ItemInfoBeans();
+				item.setId(rs.getInt("id"));
+				item.setItemName(rs.getString("item_name"));
+				item.setItemDetail(rs.getString("item_detail"));
+				item.setPriceWithTax(rs.getInt("price_with_tax"));
+				item.setFileName(rs.getString("file_name"));
+				item.setCategoryId(rs.getInt("category_id"));
+				item.setItemCreateDate(rs.getTimestamp("item_create_date"));
+				item.setItemUpdateDate(rs.getTimestamp("item_update_date"));
+				item.setRate(rs.getInt("rate"));
+				latestItemList.add(item);
+			}
+
+			st.close();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		System.out.println("getting latestItemList has been completed");
+		return latestItemList;
+	}
+
+
+	/**商品IDから商品情報を削除
+	 * @param id
+	 * 			商品ID
+	 * @throws SQLException
+	 */
+	public static void deleteItemInfoBeansByItemId(int id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement st = null;
+		try {
+			conn = DBManager.getConnection();
+			st = conn.prepareStatement("DELETE FROM item WHERE id = ?");
+
+			st.setInt(1, id);
+			st.executeUpdate();
+			st.close();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		System.out.println("Delete ItemInfoBeans by Id has been completed");
 	}
 
 }

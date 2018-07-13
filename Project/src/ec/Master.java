@@ -33,6 +33,25 @@ public class Master extends HttpServlet {
 
 		Integer userId = (Integer) session.getAttribute("userId");
 
+		//商品の削除メッセージを受け取り、nullでなければリクエストスコープに保存後、セッションスコープは削除
+		String itemDeleteCompleteMsg = (String) session.getAttribute("itemDeleteCompleteMsg");
+		if(!(itemDeleteCompleteMsg == null)) {
+			request.setAttribute("itemDeleteCompleteMsg",itemDeleteCompleteMsg);
+			session.removeAttribute("itemDeleteCompleteMsg");
+		}
+		//商品の新規登録メッセージを受け取り、nullでなければリクエストスコープに保存後、セッションスコープは削除
+		String itemRegistrationCompleteMsg = (String) session.getAttribute("itemRegistrationCompleteMsg");
+		if(!(itemRegistrationCompleteMsg == null)) {
+			request.setAttribute("itemRegistrationCompleteMsg",itemRegistrationCompleteMsg);
+			session.removeAttribute("itemRegistrationCompleteMsg");
+		}
+		//商品の更新録メッセージを受け取り、nullでなければリクエストスコープに保存後、セッションスコープは削除
+		String itemUpdateCompleteMsg = (String) session.getAttribute("itemUpdateCompleteMsg");
+		if(!(itemUpdateCompleteMsg == null)) {
+			request.setAttribute("itemUpdateCompleteMsg",itemUpdateCompleteMsg);
+			session.removeAttribute("itemUpdateCompleteMsg");
+		}
+		//管理者なら管理者トップページを表示、一般ユーザーなら一般ユーザー用のトップページにリダイレクト
 		 if(userId == null || userId != 1) {
 			response.sendRedirect("Index");
 			return;

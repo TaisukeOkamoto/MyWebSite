@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <footer id="footer">
             <div class="bg-site">
               <div class="footer_inner">
@@ -11,7 +12,7 @@
       </div>
     </div>
     <label class="pure-overlay" for="pure-toggle-left" data-overlay="left"></label>
-    <!-- ログインモーダル -->
+    <%-- ログインモーダル --%>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -34,7 +35,7 @@
       </div>
     </div>
   </div>
-      <!-- 削除モーダル -->
+      <%-- ユーザー削除モーダル --%>
     <div class="modal fade" id="delete_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -50,10 +51,7 @@
         </div>
       </div>
     </div>
-  </div>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/footerFixed.js" type="text/javascript"></script>
   <script src="js/mysite.js"></script>
-  </body>
-</html>

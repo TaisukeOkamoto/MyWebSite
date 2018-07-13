@@ -41,7 +41,7 @@ public class MasterUserList extends HttpServlet {
 			response.sendRedirect("Index");
 			return;
 		} else {
-			//ユーザー全員を取得して引き渡し
+			//ユーザー情報を全員分取得して引き渡し
 			ArrayList<UserInfoBeans> userList = UserDao.getAllUserList();
 			session.setAttribute("userList", userList);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/master_user_list.jsp");

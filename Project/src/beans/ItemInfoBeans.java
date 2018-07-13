@@ -35,6 +35,15 @@ public class ItemInfoBeans implements Serializable {
 		this.rate = rate;
 	}
 
+	public ItemInfoBeans(String itemName,String itemDetail,int priceWithTax,String fileName,int categoryId,int rate){
+		this.itemName = itemName;
+		this.itemDetail = itemDetail;
+		this.priceWithTax = priceWithTax;
+		this.fileName = fileName;
+		this.categoryId = categoryId;
+		this.rate = rate;
+	}
+
 	public ItemInfoBeans() {
 
 	}

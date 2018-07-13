@@ -274,6 +274,14 @@ footer{
 		margin: 0 auto;
 	}
 }
+/* master_item_detail */
+@media screen and (min-width: 769px){
+	.wrapping {
+		width: 640px;
+		margin: 0 auto;
+	}
+}
+
 .rotate180 {
 	display: inline-block;
 	transform: rotate(90deg);

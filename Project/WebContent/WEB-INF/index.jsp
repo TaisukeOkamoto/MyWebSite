@@ -52,20 +52,20 @@ ${LoginErrMsg}
        </div>
       </c:forEach>
      </div>
-     <div class="btn_type01 inviewfadeIn"><a href="sale_item_list.html"><button type="button" class="btn btn-primary">割引商品一覧</button></a></div>
+     <div class="btn_type01 inviewfadeIn"><a href="ItemSaleList"><button type="button" class="btn btn-primary">割引商品一覧</button></a></div>
      <!-- <div class="content_ttl"><h2><span class="gothic">News&nbsp;&&nbsp;Topics</span><br>新着情報</h2></div> -->
      <div class="content_ttl inviewfadeIn"><h2><span class="gothic">New Arrival</span><br>新商品</h2></div>
    </main>
    <div class=" inviewfadeIn">
      <ul class="multiple-item">
      <%--最新商品7件を表示 --%>
-     <c:forEach var="item7" items="${LatestItem7List}" varStatus="status">
-       <li><a href="ItemDetail?itemid=${item7.id}"><img src="images/${item7.fileName}" alt="${item7.itemName}"></a></li>
+     <c:forEach var="latestitem" items="${latestItemList}" varStatus="status" begin="0" end="6">
+       <li><a href="ItemDetail?itemid=${latestitem.id}"><img src="images/${latestitem.fileName}" alt="${latestitem.itemName}"></a></li>
 	</c:forEach>
      </ul>
    </div>
    <main role="main" class="container">
-     <div class="btn_type01 inviewfadeIn"><a href="new_item_list.html"><button type="button" class="btn btn-primary">新商品一覧</button></a></div>
+     <div class="btn_type01 inviewfadeIn"><a href="ItemLatestList"><button type="button" class="btn btn-primary">新商品一覧</button></a></div>
    </main>
 <%@ include file="include/footer.jsp"%>
   <script>
@@ -109,3 +109,5 @@ ${LoginErrMsg}
     </script>
 <script src="js/slick.min.js"></script>
 <script src="js/jquery.inview.min.js"></script>
+  </body>
+</html>
