@@ -5,9 +5,19 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="beans.UserInfoBeans" %>
 <!DOCTYPE html>
+<c:choose>
+<%--管理者と一般ユーザーは表示させるヘッダーを変更する --%>
+<c:when test="${userId != null && userId != 0}">
+<%@ include file="include/user_header.jsp"%>
+</c:when>
+<c:otherwise>
 <%@ include file="include/header.jsp"%>
+</c:otherwise>
+</c:choose>
           <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
           <main role="main" class="container">
+            <div class="sub_ttl">
+              <h3>割引商品一覧</h3></div>
             <div class="sale_item_list_area">
 				<div class="row"><%--全割引商品を表示--%>
 					<c:forEach var="discountitem" items="${discountItemList}" varStatus="status">

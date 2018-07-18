@@ -119,3 +119,9 @@
 .page-link:hover {
   color: #f7a809;
 }
+
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: #adadad;
+    border-color: #adadad;
+}

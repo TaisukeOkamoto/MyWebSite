@@ -5,7 +5,15 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="beans.UserInfoBeans" %>
 <!DOCTYPE html>
+<c:choose>
+<%--管理者と一般ユーザーは表示させるヘッダーを変更する --%>
+<c:when test="${userId != null && userId != 0}">
+<%@ include file="include/user_header.jsp"%>
+</c:when>
+<c:otherwise>
 <%@ include file="include/header.jsp"%>
+</c:otherwise>
+</c:choose>
           <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
           <main role="main" class="container">
             <div class="sub_ttl">
@@ -32,10 +40,20 @@
                   <%--ポイントは割引価格を100で割り切り捨て --%>
                   <p>獲得ポイント：${Math.round(Math.floor((item.priceWithTax*(1 - item.rate/100))/100))}ポイント</p>
                   <div class="cart_in">
-                    <a href="cart.html"><button type="button" class="btn btn-danger">カートに入れる&nbsp;<i class="fas fa-cart-arrow-down"></i></button></a>
+                    <form action="Cart" method="post">
+                    <button type="submit" class="btn btn-danger">カートに入れる&nbsp;<i class="fas fa-cart-arrow-down"></i></button>
+                    <input type="hidden" name="itemId" value="${item.id}">
+                    </form>
                   </div>
                   <div class="like_plus">
-                    <a href="mypage_like.html"><button type="button" class="btn btn-primary">お気に入りに追加する&nbsp;<i class="fas fa-star"></i></button></a>
+                  <%--ログイン時はお気に入りへ、ログインしていない時はログインモーダルを表示 --%>
+                  <c:if test="${userId != 0 && userId != null}">
+                   <form action="MypageLike" method="post">
+                    <button type="submit" class="btn btn-primary">お気に入りに追加する&nbsp;<i class="fas fa-star"></i></button>
+                    <input name="itemId" type="hidden" value="${item.id}">
+                   </form>
+                   </c:if>
+                   <c:if test="${userId == 0 || userId == null}"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">お気に入りに追加する&nbsp;<i class="fas fa-star"></i></button></c:if>
                   </div>
                 </div>
               </div>

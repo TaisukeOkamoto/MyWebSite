@@ -30,9 +30,11 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		//全てのセッションを削除
+		session.removeAttribute("user");
 		session.removeAttribute("userId");
 		session.removeAttribute("userList");
 		session.removeAttribute("allItemList");
+		session.removeAttribute("bibList");
 		//ログアウト後はトップページへ
 		response.sendRedirect("Index");
 	}

@@ -317,5 +317,4 @@ public class ItemDao {
 
 		System.out.println("Delete ItemInfoBeans by Id has been completed");
 	}
-
 }

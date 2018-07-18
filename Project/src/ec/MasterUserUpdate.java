@@ -48,6 +48,7 @@ public class MasterUserUpdate extends HttpServlet {
 		//ユーザーのIDを取得し、ユーザー情報を取得、jspへ引き渡し
 		String strId = request.getParameter("id");
 		int id = Integer.parseInt(strId);
+		session.setAttribute("id", id);
 		try {
 			UserInfoBeans user = UserDao.getUserInfoBeansByUserId(id);
 			session.setAttribute("user", user);
@@ -154,11 +155,11 @@ public class MasterUserUpdate extends HttpServlet {
 		 }
 
 		 //ユーザIDを取得
-		 int userId = UserDao.getUserId(mail, password);
+		 int id = (int) session.getAttribute("id");
 
 		 //会員情報アップデート処理
 		 try {
-			UserDao.updateUserInfoBeansByUserId(userId, user);
+			UserDao.updateUserInfoBeansByUserId(id, user);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

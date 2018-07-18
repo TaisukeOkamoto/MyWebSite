@@ -85,32 +85,7 @@ public class Registration extends HttpServlet {
 			dispatcher.forward(request, response);
 			return;
 		 }
-		 try {
-			if(UserDao.isOverlapMail(mail) == true) {
-				request.setAttribute("OverlapMailErr", "メールアドレスはすでに使用されています。");
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
-				dispatcher.forward(request, response);
-				return;
-			 }
-		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-		//パスワードと確認用パスワードが異なる時
-		 if(!password.equals(passwordConfirm)) {
-			request.setAttribute("differentPasswordErr", "パスワードと確認用パスワードが異なります。");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
-			dispatcher.forward(request, response);
-			return;
-		 }
-		//メールアドレスと確認用メールアドレスが異なる時
-		 if(!mail.equals(mailConfirm)) {
-			request.setAttribute("differentMailErr", "メールアドレスと確認用メールアドレスが異なります。");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
-			dispatcher.forward(request, response);
-			return;
-		 }
-		//電話番号をint型に変換できれば変換、できなければエラーメッセージ
+			//電話番号をint型に変換できれば変換、できなければエラーメッセージ
 		 if(ECHelper.isNum(strPhoneNumber)) {
 			phoneNumber = Integer.parseInt(strPhoneNumber);
 			user.setPhoneNumber(phoneNumber);
@@ -134,6 +109,32 @@ public class Registration extends HttpServlet {
 			}
 		 } else {
 			request.setAttribute("StringAddressNumberErr", "郵便番号は7桁の数値で入力してください。");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
+			dispatcher.forward(request, response);
+			return;
+		 }
+		//メールアドレスがすでにデータベースに登録されている時
+		 try {
+			if(UserDao.isOverlapMail(mail) == true) {
+				request.setAttribute("OverlapMailErr", "メールアドレスはすでに使用されています。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
+				dispatcher.forward(request, response);
+				return;
+			 }
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		//パスワードと確認用パスワードが異なる時
+		 if(!password.equals(passwordConfirm)) {
+			request.setAttribute("differentPasswordErr", "パスワードと確認用パスワードが異なります。");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
+			dispatcher.forward(request, response);
+			return;
+		 }
+		//メールアドレスと確認用メールアドレスが異なる時
+		 if(!mail.equals(mailConfirm)) {
+			request.setAttribute("differentMailErr", "メールアドレスと確認用メールアドレスが異なります。");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/registration.jsp");
 			dispatcher.forward(request, response);
 			return;

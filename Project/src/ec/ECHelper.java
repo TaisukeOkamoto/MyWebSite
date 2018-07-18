@@ -2,6 +2,9 @@ package ec;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import beans.ItemInfoBeans;
 
 public class ECHelper {
 
@@ -52,5 +55,21 @@ public class ECHelper {
 		return sqlDate;
 	}
 
+	/**
+	 * カートに入った商品の合計額を計算
+	 * @param items
+	 * 　　　商品
+	 * @return int
+	 */
+	public static int getTotalItemPrice(ArrayList<ItemInfoBeans> items) {
+
+		int total = 0;
+		for(ItemInfoBeans item: items) {
+			total += item.getAmount() * item.getPriceWithTax()*(double)(1-(double)item.getRate()/100);
+		}
+
+		System.out.println("Getting total price has been completed");
+		return total;
+	}
 
 }

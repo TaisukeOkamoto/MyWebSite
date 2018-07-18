@@ -3,7 +3,13 @@ package beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * 商品情報
+ * @author okamototaisuke
+ *
+ */
 public class ItemInfoBeans implements Serializable {
+
 	private int id;
 	private String itemName;
 	private String itemDetail;
@@ -13,15 +19,9 @@ public class ItemInfoBeans implements Serializable {
 	private java.util.Date itemCreateDate;
 	private java.util.Date itemUpdateDate;
 	private int rate;
-	public ArrayList<ItemInfoBeans> getItemList() {
-		return itemList;
-	}
-
-	public void setItemList(ArrayList<ItemInfoBeans> itemList) {
-		this.itemList = itemList;
-	}
-
 	private ArrayList <ItemInfoBeans> itemList;
+
+	private int amount;
 
 	public ItemInfoBeans(int id,String itemName,String itemDetail,int priceWithTax,String fileName,int categoryId,java.util.Date itemCreateDate,java.util.Date itemUpdateDate,int rate){
 		this.id = id;
@@ -118,5 +118,19 @@ public class ItemInfoBeans implements Serializable {
 
 	public void setRate(int rate) {
 		this.rate = rate;
+	}
+	public ArrayList<ItemInfoBeans> getItemList() {
+		return itemList;
+	}
+	public void setItemList(ArrayList<ItemInfoBeans> itemList) {
+		this.itemList = itemList;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 }

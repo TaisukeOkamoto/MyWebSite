@@ -65,6 +65,7 @@
         </div>
       </div>
   	</div>
+  	<%-- 削除ボタンのIDを取得、モーダル内のhrefを商品IDを含めた形式に書き換え --%>
   	<script>
   	$('.passDeleteClass').on('click', function() {
 		var id =  $(this).attr("id");

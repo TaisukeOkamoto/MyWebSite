@@ -1,4 +1,4 @@
-package ec;
+	package ec;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -47,6 +47,8 @@ public class MasterUserDelete extends HttpServlet {
 
 		try {
 			UserDao.deleteUserInfoBeansByUserId(id);
+			//セッションスコープで管理者トップへ受け渡し
+			session.setAttribute("userDeleteCompleteMsg","ユーザーは正常に削除されました");
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

@@ -19,7 +19,7 @@
              ${OverlapMailErr}
               </p>
             <div class="sub_ttl">
-              <h3>新規会員登録</h3></div>
+              <h3>会員情報更新</h3></div>
             <form class="registration_form" action="MasterUserUpdate" method="post">
               <div class="form-group row">
                 <label for="lgFormGroupInput" class="col-sm-3 col-form-label col-form-label-lg">名前</label>

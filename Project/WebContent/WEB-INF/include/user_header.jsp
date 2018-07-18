@@ -125,7 +125,7 @@
                   <a class="nav-link active text-white" href="Mypage">マイページ</a>
                 </li>
                 <li>
-                  <a class="nav-link active gothic cart text-white" href="cart.html"><i class="fas fa-cart-arrow-down"></i></a>
+                  <a href="Cart" class="nav-link active gothic cart text-white" href="cart.html"><i class="fas fa-cart-arrow-down"></i></a>
                 </li>
               </ul>
             </div>

@@ -7,19 +7,20 @@
           <main role="main" class="container">
             <div class="sub_ttl">
               <h3>マイページ</h3></div>
+     <p class="text-danger text-center font-weight-bold">${UserUpdateMsg}</p>
             <div class="row">
               <div class="col-3">
                 <ul>
                   <li><a href="Mypage">マイページトップ</a></li>
-                  <li><a href="mypage_history.html">購入履歴</a></li>
-                  <li><a href="mypage_update.html">登録情報変更</a></li>
-                  <li><a href="mypage_like.html">お気に入り商品</a></li>
-                  <li><a href="mypage_unsubscribe.html">退会手続き</a></li>
+                  <li><a href="MypageHistory">購入履歴</a></li>
+                  <li><a href="MypageUserUpdate">登録情報変更</a></li>
+                  <li><a href="MypageLike">お気に入り商品</a></li>
+                  <li><a href="MypageUnsubscribe">退会手続き</a></li>
                   <li><a href="Logout">ログアウト</a></li>
                 </ul>
               </div>
               <div class="col text-left">マイページトップ</div>
-              <div class="col">ようこそ〇〇〇〇様 ポイント残高：〇〇〇ポイント</div>
+              <div class="col">ようこそ&nbsp;${user.familyName}${user.firstName}様 ポイント残高：${user.userPoint}ポイント</div>
             </div>
           </main>
 <%@ include file="include/footer.jsp"%>

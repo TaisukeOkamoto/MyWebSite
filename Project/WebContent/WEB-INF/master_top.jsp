@@ -10,6 +10,7 @@
      ${itemDeleteCompleteMsg}
      ${itemRegistrationCompleteMsg}
      ${itemUpdateCompleteMsg}
+     ${userDeleteCompleteMsg}
      </p>
    <div class="row">
      <div class="col-3">

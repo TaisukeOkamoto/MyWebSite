@@ -4,7 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * ユーザー情報
+ * @author okamototaisuke
+ *
+ */
 public class UserInfoBeans implements Serializable {
+
  private int id;
  private String familyName;
  private String firstName;
