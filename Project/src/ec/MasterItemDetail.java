@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.ItemInfoBeans;
+import dao.CategorySDao;
 import dao.ItemDao;
 
 /**
@@ -40,12 +41,15 @@ public class MasterItemDetail extends HttpServlet {
 			response.sendRedirect("Index");
 			return;
 		}
-		 //商品IDを取得して数値に変換。該当商品を取得して受け渡し。
+		 //商品IDを取得して数値に変換。該当商品を取得して、小カテゴリーIDから小カテゴリー名を取得して受け渡し。
 		 String itemIdStr = (String) request.getParameter("itemId");
 		 int itemId = Integer.parseInt(itemIdStr);
 		try {
 			ItemInfoBeans item = ItemDao.getItemrInfoBeansByItemId(itemId);
-			 request.setAttribute("item",item);
+			int sCategory = item.getsCategory();
+			String CategorysName = CategorySDao.getsCategoryName(sCategory);
+			item.setsCategoryName(CategorysName);
+			request.setAttribute("item",item);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

@@ -19,7 +19,7 @@
      <p class="font-weight-bold">商品の割引率</p>
        <p class="mb-5">${item.rate}%</p>
      <p class="font-weight-bold">商品のカテゴリー</p>
-     <p class="mb-5">${item.categoryId}</p>
+     <p class="mb-5">${item.sCategoryName}</p>
      <p class="font-weight-bold">商品の税込割引後金額</p>
      <p class="mb-5"><fmt:formatNumber value="${Math.round(Math.floor(item.priceWithTax*(1 - item.rate/100)))}" pattern="###,###" />円</p>
      <div class="text-center">
@@ -27,6 +27,6 @@
      </div>
    </div>
  </main>
-<%@ include file="include/footer.jsp"%>
+<%@ include file="include/master_footer.jsp"%>
   </body>
 </html>

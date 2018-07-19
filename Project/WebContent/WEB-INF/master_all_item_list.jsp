@@ -28,7 +28,7 @@
 	                </c:forEach>
                 </div>
             </div>
-            <nav aria-label="...">
+<!--             <nav aria-label="...">
               <ul class="pagination justify-content-center">
                 <li class="page-item">
                   <a class="page-link" href="#" aria-label="前">
@@ -46,9 +46,9 @@
                 </a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
           </main>
-<%@ include file="include/footer.jsp"%>
+<%@ include file="include/master_footer.jsp"%>
     <%-- 商品削除モーダル --%>
     <div class="modal fade" id="delete_item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">

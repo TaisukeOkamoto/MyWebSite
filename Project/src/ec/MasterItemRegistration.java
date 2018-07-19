@@ -64,8 +64,14 @@ public class MasterItemRegistration extends HttpServlet {
 		String rateStr = request.getParameter("rate");
 		int rate = Integer.parseInt(rateStr);
 		//Stringで受け取りint型に変換
-		String categoryIdStr = request.getParameter("categoryId");
-		int categoryId = Integer.parseInt(categoryIdStr);
+		String userTypeStr = request.getParameter("userType");
+		int userType = Integer.parseInt(userTypeStr);
+		//Stringで受け取りint型に変換
+		String lCategoryStr = request.getParameter("lCategory");
+		int lCategory = Integer.parseInt(lCategoryStr);
+		//Stringで受け取りint型に変換
+		String sCategoryStr = request.getParameter("sCategory");
+		int sCategory = Integer.parseInt(sCategoryStr);
 
 		//Stringで受け取りint型に変換
 		String priceWithTaxStr = request.getParameter("priceWithTax");
@@ -74,13 +80,13 @@ public class MasterItemRegistration extends HttpServlet {
 		int priceWithTax = 0;
 
 		//エラーが起きても入力内容は保持する
-		ItemInfoBeans item = new ItemInfoBeans(itemName,itemDetail,priceWithTax,fileName,categoryId,rate);
+		ItemInfoBeans item = new ItemInfoBeans(itemName,itemDetail,priceWithTax, fileName, lCategory, sCategory, userType, rate);
 		request.setAttribute("item", item);
 
 		//商品の税込価格をint型に変換できれば変換、できなければエラーメッセージ
 		 if(ECHelper.isNum(priceWithTaxStr)) {
 			priceWithTax = Integer.parseInt(priceWithTaxStr);
-			ItemDao.setItemInfo(itemName, itemDetail, priceWithTax, fileName, categoryId, rate);
+			ItemDao.setItemInfo(itemName, itemDetail, priceWithTax, fileName, sCategory, userType, rate);
 			//セッションスコープに商品登録メッセージを保存
 			session.setAttribute("itemRegistrationCompleteMsg", "商品は正常に登録されました");
 			response.sendRedirect("Master");

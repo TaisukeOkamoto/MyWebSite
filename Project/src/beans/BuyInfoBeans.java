@@ -19,6 +19,7 @@ public class BuyInfoBeans implements Serializable {
 	private String deliveryName;
 	private int deliveryPrice;
 	private int buyId;
+	private int userPoint;
 
 	public BuyInfoBeans() {
 
@@ -85,6 +86,14 @@ public class BuyInfoBeans implements Serializable {
 
 	public void setBuyId(int buyId) {
 		this.buyId = buyId;
+	}
+
+	public int getUserPoint() {
+		return userPoint;
+	}
+
+	public void setUserPoint(int userPoint) {
+		this.userPoint = userPoint;
 	}
 
 

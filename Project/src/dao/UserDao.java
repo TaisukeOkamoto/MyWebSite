@@ -386,4 +386,31 @@ public class UserDao {
 	}
 
 
+	public static void setPointUserInfoBeans(int userPoint,int userId) throws SQLException {
+		Connection conn = null;
+		PreparedStatement st = null;
+		try {
+			conn = DBManager.getConnection();
+			st = conn.prepareStatement("UPDATE user_info" +
+					" SET user_point = ? WHERE id = ?");
+
+			st.setInt(1, userPoint);
+			st.setInt(2, userId);
+
+			st.executeUpdate();
+
+			st.close();
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		System.out.println("Setting PointUserInfoBeans has been completed");
+	}
+
 }

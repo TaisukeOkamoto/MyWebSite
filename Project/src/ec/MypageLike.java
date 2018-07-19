@@ -95,6 +95,13 @@ public class MypageLike extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		//お気に入りメッセージを受け取り、nullでなければリクエストスコープに保存後、セッションスコープは削除
+		String LikeDeleteMsg = (String) session.getAttribute("LikeDeleteMsg");
+		if(!(LikeDeleteMsg == null)) {
+			request.setAttribute("LikeDeleteMsg",LikeDeleteMsg);
+			session.removeAttribute("LikeDeleteMsg");
+		}
+
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/mypage_like.jsp");
 		 dispatcher.forward(request, response);
 

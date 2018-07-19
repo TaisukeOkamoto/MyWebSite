@@ -7,7 +7,7 @@
           <main role="main" class="container">
             <div class="sub_ttl">
               <h3>ユーザ一覧</h3></div>
-            <form class="" action="master_user_list.html" method="post">
+<!--             <form class="" action="master_user_list.html" method="post">
               <div class="form-group row user_search_form mb-5">
                 <label for="inputUserName" class="col-3 col-form-label text-right">名前</label>
                 <div class="col-9 mb-3">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col text-center"><button type="submit" class="btn btn-primary">検索する</button></div>
               </div>
-            </form>
+            </form> -->
             <div class="row mb-3">
               <div class="col text-center">番号</div>
               <div class="col text-center">名前</div>
@@ -93,7 +93,7 @@
               <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
             </div>
 			</c:forEach>
-            <nav aria-label="...">
+<!--             <nav aria-label="...">
               <ul class="pagination justify-content-center">
                 <li class="page-item">
                   <a class="page-link" href="#" aria-label="前">
@@ -111,8 +111,8 @@
             </a>
                 </li>
               </ul>
-            </nav>
+            </nav> -->
           </main>
-<%@ include file="include/footer.jsp"%>
+<%@ include file="include/master_footer.jsp"%>
   </body>
 </html>

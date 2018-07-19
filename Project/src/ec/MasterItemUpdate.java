@@ -50,7 +50,11 @@ public class MasterItemUpdate extends HttpServlet {
 			session.setAttribute("itemid", itemid);
 
 			try {
+				//商品IDから商品を取得。小カテゴリーから大カテゴリーを取得する
 				ItemInfoBeans item = ItemDao.getItemrInfoBeansByItemId(itemid);
+				int sCategory = item.getsCategory();
+				int lCategory = ItemDao.getlCategoryBysCategory(sCategory);
+				item.setlCategory(lCategory);
 				request.setAttribute("item", item);
 			} catch (SQLException e) {
 				// TODO 自動生成された catch ブロック
@@ -77,8 +81,14 @@ public class MasterItemUpdate extends HttpServlet {
 		String rateStr = request.getParameter("rate");
 		int rate = Integer.parseInt(rateStr);
 		//Stringで受け取りint型に変換
-		String categoryIdStr = request.getParameter("categoryId");
-		int categoryId = Integer.parseInt(categoryIdStr);
+		String userTypeStr = request.getParameter("userType");
+		int userType = Integer.parseInt(userTypeStr);
+		//Stringで受け取りint型に変換
+		String lCategoryStr = request.getParameter("lCategory");
+		int lCategory = Integer.parseInt(lCategoryStr);
+		//Stringで受け取りint型に変換
+		String sCategoryStr = request.getParameter("sCategory");
+		int sCategory = Integer.parseInt(sCategoryStr);
 
 		//Stringで受け取りint型に変換
 		String priceWithTaxStr = request.getParameter("priceWithTax");
@@ -87,7 +97,7 @@ public class MasterItemUpdate extends HttpServlet {
 		int priceWithTax = 0;
 
 		//エラーが起きても入力内容は保持する
-		ItemInfoBeans item = new ItemInfoBeans(itemName,itemDetail,priceWithTax,fileName,categoryId,rate);
+		ItemInfoBeans item = new ItemInfoBeans(itemName,itemDetail,priceWithTax,fileName,lCategory,sCategory,userType,rate);
 		request.setAttribute("item", item);
 
 		//商品の税込価格をint型に変換できれば変換、できなければエラーメッセージ

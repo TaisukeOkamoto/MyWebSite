@@ -201,6 +201,6 @@
               </div>
             </form>
           </main>
-<%@ include file="include/footer.jsp"%>
+<%@ include file="include/master_footer.jsp"%>
   </body>
 </html>

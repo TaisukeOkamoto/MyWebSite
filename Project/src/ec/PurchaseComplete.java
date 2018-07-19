@@ -14,9 +14,12 @@ import javax.servlet.http.HttpSession;
 
 import beans.BuyDetailInfoBeans;
 import beans.BuyInfoBeans;
+import beans.DeliveryMethodInfoBeans;
 import beans.ItemInfoBeans;
 import dao.BuyDao;
 import dao.BuyDetailDao;
+import dao.DeliveryMethodDao;
+import dao.UserDao;
 
 /**
  * Servlet implementation class PurchaseResult
@@ -69,6 +72,20 @@ public class PurchaseComplete extends HttpServlet {
 				bdib.setItemId(cartInItem.getId());
 				BuyDetailDao.insertBuyDetail(bdib);
 			}
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		int totalPrice = bib.getTotalPrice();
+		int userId = (int) session.getAttribute("userId");
+		try {
+			DeliveryMethodInfoBeans DeliveryMethodInfo = DeliveryMethodDao.getDeliveryMethodById(DeliveryMethodId);
+			int deliveryMethodPrice = DeliveryMethodInfo.getDeliveryPrice();
+
+			int userPoint = (int) Math.round(Math.floor((double)(totalPrice + deliveryMethodPrice)/100));
+			UserDao.setPointUserInfoBeans(userPoint,userId);
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック

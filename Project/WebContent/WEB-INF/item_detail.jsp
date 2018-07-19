@@ -38,7 +38,7 @@
                   <%--割引価格は切り捨て、価格は###,###形式でフォーマット --%>
                   <p class="price_after price_large"><fmt:formatNumber value="${Math.round(Math.floor(item.priceWithTax*(1 - item.rate/100)))}" pattern="###,###" />円<span class="tax">（税込）</span></p>
                   <%--ポイントは割引価格を100で割り切り捨て --%>
-                  <p>獲得ポイント：${Math.round(Math.floor((item.priceWithTax*(1 - item.rate/100))/100))}ポイント</p>
+                  <p>この商品の獲得ポイント：${Math.round(Math.floor((item.priceWithTax*(1 - item.rate/100))/100))}ポイント</p>
                   <div class="cart_in">
                     <form action="Cart" method="post">
                     <button type="submit" class="btn btn-danger">カートに入れる&nbsp;<i class="fas fa-cart-arrow-down"></i></button>

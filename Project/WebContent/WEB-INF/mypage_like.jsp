@@ -13,12 +13,12 @@
               <div class="row">
                 <div class="col-3">
                   <ul>
-                    <li><a href="mypage_top.html">マイページトップ</a></li>
-                    <li><a href="mypage_history.html">購入履歴</a></li>
-                    <li><a href="mypage_update.html">登録情報変更</a></li>
-                    <li><a href="MypageLike">お気に入り商品</a></li>
-                    <li><a href="mypage_unsubscribe.html">退会手続き</a></li>
-                    <li><a href="index.html">ログアウト</a></li>
+                  <li><a href="Mypage">マイページトップ</a></li>
+                  <li><a href="MypageHistory">購入履歴</a></li>
+                  <li><a href="MypageUserUpdate">登録情報変更</a></li>
+                  <li><a href="MypageLike">お気に入り商品</a></li>
+                  <li><a href="MypageUnsubscribe">退会手続き</a></li>
+                  <li><a href="Logout">ログアウト</a></li>
                   </ul>
                 </div>
                 <div class="col-9">
@@ -28,7 +28,7 @@
                   </div>
                   <div class="row">
                   <c:forEach var="likeItem" items="${likeItems}" varStatus="status">
-                    <div class="col-4 items"><a href="item_detail.html"><img src="images/${likeItem.fileName}" alt="${likeItem.itemName}"></a><br>
+                    <div class="col-4 items mb-5"><a href="ItemDetail?itemid=${likeItem.id}"><img src="images/${likeItem.fileName}" alt="${likeItem.itemName}"></a><br>
                       <p class="item_ttl">${likeItem.itemName}</p>
 			          <p class="price_before">
 			          <%--価格は###,###形式でフォーマット --%>
@@ -37,7 +37,7 @@
 			          </p>
 			          <%--割引価格は切り捨て、価格は###,###形式でフォーマット --%>
                       <p class="price_after mb-3"><fmt:formatNumber value="${Math.round(Math.floor(likeItem.priceWithTax*(1 - likeItem.rate/100)))}" pattern="###,###" />円<span class="tax">（税込）</span></p>
-                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_item">削除</button>
+                      <button id="${likeItem.id}" type="button" class="btn btn-danger passDeleteClass" data-toggle="modal" data-target="#delete_item">削除</button>
                     </div>
                     </c:forEach>
                   </div>
@@ -47,5 +47,29 @@
             </div>
           </main>
 <%@ include file="include/footer.jsp"%>
+    <%-- 商品削除モーダル --%>
+    <div class="modal fade" id="delete_item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="delete_itemLabel">商品を削除しますか</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+        <span aria-hidden="true">&times;</span>
+      </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center" id="deleteButton"><a class="btn btn-danger" href="" role="button">削除</a></div>
+          </div>
+        </div>
+      </div>
+  	</div>
+  	<%-- 削除ボタンのIDを取得、モーダル内のhrefを商品IDを含めた形式に書き換え --%>
+  	<script>
+  	$('.passDeleteClass').on('click', function() {
+		var id =  $(this).attr("id");
+		var url = "MypageLikeDelete?itemid="+id;
+		$("#deleteButton a").attr("href", url)
+  	});
+  	</script>
   </body>
 </html>

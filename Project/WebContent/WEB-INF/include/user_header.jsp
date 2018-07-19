@@ -23,93 +23,96 @@
       <nav class="pure-drawer" data-position="left">
         <div class="menu_wrap">
           <div class="list-group list-group-flush">
-            <a href="" class="list-group-item text-dark">All</a>
+            <a href="ItemCategoryList" class="list-group-item text-dark">All</a>
             <div class="list-group-item gothic pointer">Men</div>
             <ul class="list-group none p-3">
-              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="ItemCategoryList?userType=1" class="text-site">商品一覧</a></li>
               <li class="category-3 pointer">インナー</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">シャツ</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=1" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=1&sCategory=1" class="text-site">シャツ</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=1&sCategory=2" class="text-site">セーター</a></li>
               </ul>
               <li class="category-3 pointer">アウター</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">ジャケット</a></li>
-                <li><a href="" class="text-site">コート</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=2" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=1&sCategory=3" class="text-site">ジャケット</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=1&sCategory=4" class="text-site">コート</a></li>
               </ul>
               <li class="category-3 pointer">ボトムス・靴</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">ジーンズ</a></li>
-                <li><a href="" class="text-site">靴</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=3" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=3&sCategory=5" class="text-site">ジーンズ</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=3&sCategory=6" class="text-site">靴</a></li>
               </ul>
               <li class="category-3 pointer">アクセリー</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">ネックレス</a></li>
-                <li><a href="" class="text-site">時計</a></li>
-                <li><a href="" class="text-site">ベルト</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=4" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=4&sCategory=7" class="text-site">ネックレス</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=4&sCategory=8" class="text-site">時計</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=4&sCategory=9" class="text-site">ベルト</a></li>
               </ul>
             </ul>
             <div class="list-group-item gothic pointer">Women</div>
             <ul class="list-group none p-3">
-              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="ItemCategoryList?userType=2" class="text-site">商品一覧</a></li>
               <li class="category-3 pointer">インナー</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">シャツ</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=1" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=1&sCategory=1" class="text-site">シャツ</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=1&sCategory=2" class="text-site">セーター</a></li>
               </ul>
               <li class="category-3 pointer">アウター</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">ジャケット</a></li>
-                <li><a href="" class="text-site">コート</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=2" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=2&sCategory=3" class="text-site">ジャケット</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=2&sCategory=4" class="text-site">コート</a></li>
               </ul>
               <li class="category-3 pointer">ボトムス・靴</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">靴</a></li>
-                <li><a href="" class="text-site">ジーンズ</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=3" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=3&sCategory=5" class="text-site">靴</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=3&sCategory=6" class="text-site">ジーンズ</a></li>
               </ul>
               <li class="category-3 pointer">アクセリー</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">ネックレス</a></li>
-                <li><a href="" class="text-site">時計</a></li>
-                <li><a href="" class="text-site">ベルト</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=4" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=4&sCategory=7" class="text-site">ネックレス</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=4&sCategory=8" class="text-site">時計</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=4&sCategory=9" class="text-site">ベルト</a></li>
               </ul>
             </ul>
             <div class="list-group-item gothic pointer">Kids</div>
             <ul class="list-group none p-3">
-              <li><a href="" class="text-site">商品一覧</a></li>
+              <li><a href="ItemCategoryList?userType=3" class="text-site">商品一覧</a></li>
               <li class="category-3 pointer">インナー</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">シャツ</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=1" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=1&sCategory=1" class="text-site">シャツ</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=1&sCategory=2" class="text-site">セーター</a></li>
               </ul>
               <li class="category-3 pointer">アウター</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">ジャケット</a></li>
-                <li><a href="" class="text-site">コート</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=2" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=2&sCategory=3" class="text-site">ジャケット</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=2&sCategory=4" class="text-site">コート</a></li>
               </ul>
               <li class="category-3 pointer">ボトムス・靴</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">靴</a></li>
-                <li><a href="" class="text-site">ジーンズ</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=3" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=3&sCategory=5" class="text-site">靴</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=3&sCategory=6" class="text-site">ジーンズ</a></li>
               </ul>
               <li class="category-3 pointer">アクセリー</li>
               <ul class="none">
-                <li><a href="" class="text-site">商品一覧</a></li>
-                <li><a href="" class="text-site">ネックレス</a></li>
-                <li><a href="" class="text-site">時計</a></li>
-                <li><a href="" class="text-site">ベルト</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=4" class="text-site">商品一覧</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=4&sCategory=7" class="text-site">ネックレス</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=4&sCategory=8" class="text-site">時計</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=4&sCategory=9" class="text-site">ベルト</a></li>
               </ul>
             </ul>
-            <form class="form-inline list-group-item" action="item_search_result.html">
-              <input class="form-control col-10" type="text" placeholder="キーワード検索" aria-label="Search">
+            <form class="form-inline list-group-item" action="ItemSearch">
+              <input name="keyword" class="form-control col-10" type="text" placeholder="キーワード検索" aria-label="Search">
               <button class="btn bg-site col-2 keysearch" type="submit"><i class="fas fa-search"></i></button>
             </form>
           </div>

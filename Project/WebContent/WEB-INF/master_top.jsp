@@ -26,6 +26,6 @@
      <div class="col">ようこそ管理者様</div>
    </div>
  </main>
-<%@ include file="include/footer.jsp"%>
+<%@ include file="include/master_footer.jsp"%>
   </body>
 </html>
