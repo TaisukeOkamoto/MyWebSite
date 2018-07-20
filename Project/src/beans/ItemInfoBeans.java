@@ -17,6 +17,7 @@ public class ItemInfoBeans implements Serializable {
 	private String fileName;
 	private int lCategory;
 	private int sCategory;
+	private String lCategoryName;
 	private String sCategoryName;
 	private int userType;
 	private java.util.Date itemCreateDate;
@@ -25,6 +26,8 @@ public class ItemInfoBeans implements Serializable {
 	private ArrayList <ItemInfoBeans> itemList;
 
 	private int amount;
+
+	private String userTypeName;
 
 	public ItemInfoBeans(int id,String itemName,String itemDetail,int priceWithTax,String fileName,int lCategory,int sCategory,java.util.Date itemCreateDate,java.util.Date itemUpdateDate,int rate){
 		this.id = id;
@@ -162,6 +165,22 @@ public class ItemInfoBeans implements Serializable {
 
 	public void setsCategoryName(String sCategoryName) {
 		this.sCategoryName = sCategoryName;
+	}
+
+	public String getlCategoryName() {
+		return lCategoryName;
+	}
+
+	public void setlCategoryName(String lCategoryName) {
+		this.lCategoryName = lCategoryName;
+	}
+
+	public String getUserTypeName() {
+		return userTypeName;
+	}
+
+	public void setUserTypeName(String userTypeName) {
+		this.userTypeName = userTypeName;
 	}
 
 }

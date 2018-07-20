@@ -40,9 +40,12 @@ public class Index extends HttpServlet {
 		Integer userId = (Integer) session.getAttribute("userId");
 		session.removeAttribute("LoginErrMsg");
 
+		//ページ番号に1をセット
+		int pageNumber = 1;
+
 		try {
 			//最新商品を受け渡し
-			ArrayList<ItemInfoBeans> latestItemList = ItemDao.getLatestItemList();
+			ArrayList<ItemInfoBeans> latestItemList = ItemDao.getLatestItemList(pageNumber);
 			request.setAttribute("latestItemList",latestItemList);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
@@ -51,7 +54,7 @@ public class Index extends HttpServlet {
 
 		try {
 			//割引商品リストをシャッフルして受け渡し
-			ArrayList<ItemInfoBeans> discountItemList = ItemDao.getDiscountItem();
+			ArrayList<ItemInfoBeans> discountItemList = ItemDao.getDiscountItem(pageNumber);
 			Collections.shuffle(discountItemList);
 			request.setAttribute("discountItemList",discountItemList);
 		} catch (SQLException e) {

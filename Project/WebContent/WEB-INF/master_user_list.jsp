@@ -90,29 +90,18 @@
               <div class="col text-center">${user.gender}</div>
               <div class="col text-center"><a href="MasterUserDetail?id=${user.id}"><button type="button" class="btn btn-info">詳細</button></a></div>
               <div class="col text-center"><a href="MasterUserUpdate?id=${user.id}"><button type="button" class="btn btn-primary">更新</button></a></div>
-              <div class="col text-center"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_user">削除</button></div>
+              <div class="col text-center"><button id="${user.id}" type="button" class="btn btn-danger passDeleteClass" data-toggle="modal" data-target="#delete_user">削除</button></div>
             </div>
 			</c:forEach>
-<!--             <nav aria-label="...">
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="前">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">前</span>
-            </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="次">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">次</span>
-            </a>
-                </li>
-              </ul>
-            </nav> -->
           </main>
 <%@ include file="include/master_footer.jsp"%>
+  	<%-- 削除ボタンのIDを取得、モーダル内のhrefを商品IDを含めた形式に書き換え --%>
+  	<script>
+  	$('.passDeleteClass').on('click', function() {
+		var id =  $(this).attr("id");
+		var url = "MasterUserDelete?id="+id;
+		$("#deleteButton a").attr("href", url)
+  	});
+  	</script>
   </body>
 </html>

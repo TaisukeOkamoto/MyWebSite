@@ -23,6 +23,7 @@
             </button>
           </div>
           <div class="modal-body">
+            <p class="alert-danger">${LoginErrMsg}</p>
           <form action="Login" method="post">
             <ul class="login">
               <li><input type="text" name="mail" placeholder="ご登録メールアドレス"></li>
@@ -51,6 +52,14 @@
         </div>
       </div>
     </div>
+ <%--ログインのエラーメッセージがある時はログインモーダルを再表示 --%>
+ <c:if test="${LoginErrMsg != null}">
+  <script>
+  $(window).on('load',function(){
+	    $('#myModal').modal('show');
+	});
+  </script>
+  </c:if>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/footerFixed.js" type="text/javascript"></script>

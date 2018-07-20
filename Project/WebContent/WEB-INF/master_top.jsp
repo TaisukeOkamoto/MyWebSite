@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%@ include file="include/master_header.jsp"%>
  <main role="main" class="container">
   <div class="site_ttl"><h1><a href="Master"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
    <div class="sub_ttl">
      <h3>管理者ページ</h3></div>
-     <p class="text-danger text-center font-weight-bold">
-     ${itemDeleteCompleteMsg}
-     ${itemRegistrationCompleteMsg}
-     ${itemUpdateCompleteMsg}
-     ${userDeleteCompleteMsg}
-     </p>
+     <p class="text-center"><span class="alert-success <c:if test="${itemDeleteCompleteMsg != null || itemRegistrationCompleteMsg != null || itemUpdateCompleteMsg != null || userDeleteCompleteMsg != null}">p-2</c:if>">${itemDeleteCompleteMsg}${itemRegistrationCompleteMsg}${itemUpdateCompleteMsg}${userDeleteCompleteMsg}</span></p>
    <div class="row">
      <div class="col-3">
        <ul>

@@ -13,7 +13,10 @@
 </c:otherwise>
 </c:choose>
 <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
-<p class="text-danger text-center font-weight-bold">${CartAlreadyMsg}${itemDeleteMsg}${CartSetMsg}${CartAmountChangeMsg}</p>
+<%--エラーメッセージ表示用 --%>
+<p class="text-center"><span class="alert-danger <c:if test="${CartAlreadyMsg != null || itemDeleteMsg != null}">p-2</c:if>">${CartAlreadyMsg}${itemDeleteMsg}</span></p>
+<p class="text-center"><span class="alert-success <c:if test="${CartSetMsg != null}">p-2</c:if>">${CartSetMsg}</span></p>
+<p class="text-center"><span class="alert-warning <c:if test="${CartAmountChangeMsg != null}">p-2</c:if>">${CartAmountChangeMsg}</span></p>
   <main role="main" class="container">
     <div class="sub_ttl">
       <h3>ショッピングカート</h3></div>

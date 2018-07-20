@@ -11,9 +11,7 @@
             <div class="sub_ttl">
               <h3>管理者ページ</h3>
             </div>
-              <p class="text-danger text-center font-weight-bold">
-              ${intItemPriceErr}
-              </p>
+              <p class="text-center"><span class="alert-danger <c:if test="${intItemPriceErr != null}">p-2</c:if>">${intItemPriceErr}</span></p>
             <form class="registration_form" action="MasterItemRegistration" method="post">
               <p>商品名を選択してください</p>
               <p class="mb-5"><input Name="itemName" type="text" value="${item.itemName}" class="form-control" placeholder="商品名" required></p>

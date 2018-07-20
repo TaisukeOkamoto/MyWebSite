@@ -13,7 +13,6 @@
 </c:otherwise>
 </c:choose>
  <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
- <p class="text-danger text-center font-weight-bold">${CartAlreadyMsg}${itemDeleteMsg}${CartSetyMsg}</p>
  <main role="main" class="container">
    <p class="text-center">商品購入が完了しました。<br>ご注文いただきありがとうございました。お届けまでしばらくお待ちください。<br>
      <span class="text-danger">※サンプルサイトの為、実際に商品は送られません</span>

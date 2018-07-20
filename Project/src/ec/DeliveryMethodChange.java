@@ -53,6 +53,7 @@ public class DeliveryMethodChange extends HttpServlet {
 			//購入情報に配送方法IDをセットする
 			BuyInfoBeans bib = (BuyInfoBeans) session.getAttribute("bib");
 			bib.setDeliveryMethodId(DeliveryMethodId);
+
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

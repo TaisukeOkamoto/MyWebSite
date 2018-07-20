@@ -19,7 +19,7 @@
       </button>
           </div>
           <div class="modal-body">
-            <div class="text-center"><a class="btn btn-danger" href="MasterUserDelete?id=${user.id}" role="button">削除</a></div>
+            <div class="text-center" id="deleteButton"><a class="btn btn-danger" href="" role="button">削除</a></div>
           </div>
         </div>
       </div>

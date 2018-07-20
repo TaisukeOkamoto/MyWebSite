@@ -7,31 +7,32 @@ import java.sql.SQLException;
 
 import base.DBManager;
 
-public class CategorySDao {
+public class UserTypeDao {
 
 	/**
-	 * 小カテゴリーIDから小カテゴリー名を取得する
-	 * @param sCategory
+	 * ユーザー種別IDからユーザー種別名を取得する
+	 * @param id
 	 * @return String
 	 * @throws SQLException
 	 */
-	public static String getsCategoryName(int sCategory) throws SQLException {
+	public static String getUsertypeNameById(int id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement st = null;
 		try {
 			conn = DBManager.getConnection();
-			st = conn.prepareStatement("SELECT name FROM category_s WHERE id = ?");
+			st = conn.prepareStatement("SELECT type FROM user_type WHERE id = ?");
 
-			st.setInt(1, sCategory);
+			st.setInt(1, id);
 
 			ResultSet rs = st.executeQuery();
 
-			String categorysName = null;
+			String userTypeName = null;
+
 			while(rs.next()) {
-				categorysName = rs.getString("name");
+				userTypeName = rs.getString("type");
 			}
-			System.out.println("getting sCategoryName by sCategoryId has been completed");
-			return categorysName;
+			System.out.println("getting userTypeName by Id has been completed");
+			return userTypeName;
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -42,4 +43,5 @@ public class CategorySDao {
 			}
 		}
 	}
+
 }

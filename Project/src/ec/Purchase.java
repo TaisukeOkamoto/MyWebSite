@@ -15,7 +15,9 @@ import javax.servlet.http.HttpSession;
 import beans.BuyInfoBeans;
 import beans.DeliveryMethodInfoBeans;
 import beans.ItemInfoBeans;
+import beans.UserInfoBeans;
 import dao.DeliveryMethodDao;
+import dao.UserDao;
 
 /**
  * Servlet implementation class Purchase
@@ -89,6 +91,18 @@ public class Purchase extends HttpServlet {
 		bib.setUserId(userId);
 
 		session.setAttribute("bib", bib);
+
+		//ポイント使用の初期値に0をセット
+		session.setAttribute("UserPointChange", 0);
+
+		//ユーザーを取得して購入画面に送る
+		try {
+			UserInfoBeans user = UserDao.getUserInfoBeansByUserId(userId);
+			session.setAttribute("user", user);
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 		//カートの中身があるなら購入ページへ
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/purchase.jsp");

@@ -25,9 +25,11 @@
 		                  <a href="ItemDetail?itemid=${item.id}"><img src="images/${item.fileName}" alt="${item.itemName}"></a>
 		                  <p class="item_ttl">${item.itemName}</p>
 		                  <p class="price_before">
-		                  <%--価格は###,###形式でフォーマット --%>
-		                    <span class="line_through"><fmt:formatNumber value="${item.priceWithTax}" pattern="###,###" />円<span class="tax">（税込）</span></span>
-		                    <span class="discount">${item.rate}%OFF</span>
+		                  <%--割引が0でない時のみ表示。価格は###,###形式でフォーマット--%>
+		                  	<c:if test="${item.rate != 0}">
+			                    <span class="line_through"><fmt:formatNumber value="${item.priceWithTax}" pattern="###,###" /><span class="tax">円（税込）</span></span>
+			                    <span class="discount">${item.rate}%OFF</span>
+		                    </c:if>
 		                  </p>
 		                  <%--割引価格は切り捨て、価格は###,###形式でフォーマット --%>
 		                  <p class="price_after"><fmt:formatNumber value="${Math.round(Math.floor(item.priceWithTax*(1 - item.rate/100)))}" pattern="###,###" />円<span class="tax">（税込）</span></p>

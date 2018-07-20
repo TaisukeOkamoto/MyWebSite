@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.ItemInfoBeans;
+import dao.CategoryLDao;
+import dao.CategorySDao;
 import dao.ItemDao;
+import dao.UserTypeDao;
 
 /**
  * Servlet implementation class ItemDetail
@@ -39,7 +42,21 @@ public class ItemDetail extends HttpServlet {
 		int itemId = Integer.parseInt(itemIdStr);
 
 		try {
+			//商品を取得
 			ItemInfoBeans item = ItemDao.getItemrInfoBeansByItemId(itemId);
+			//ユーザー種別を取得して商品にセット
+			int userTypeId = item.getUserType();
+			String userTypeName = UserTypeDao.getUsertypeNameById(userTypeId);
+			item.setUserTypeName(userTypeName);
+			//小カテゴリー名を取得して商品にセット
+			int sCategory = item.getsCategory();
+			String sCategoryName = CategorySDao.getsCategoryName(sCategory);
+			item.setsCategoryName(sCategoryName);
+			//大カテゴリー名を取得して商品にセット
+			int lCategory = ItemDao.getlCategoryBysCategory(sCategory);
+			String lCategoryName = CategoryLDao.getlCategoryName(lCategory);
+			item.setlCategory(lCategory);
+			item.setlCategoryName(lCategoryName);
 			request.setAttribute("item", item);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック

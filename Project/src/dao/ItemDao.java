@@ -207,18 +207,19 @@ public class ItemDao {
 	}
 
 	/**
-	 * 割引商品を全て取得
+	 * 割引商品を全て取得（一覧ページには8件ずつ表示）
 	 * @return discountItemList
 	 * @throws SQLException
 	 */
-	public static ArrayList<ItemInfoBeans> getDiscountItem() throws SQLException {
+	public static ArrayList<ItemInfoBeans> getDiscountItem(int pageNumber) throws SQLException {
 		ArrayList<ItemInfoBeans> discountItemList = new ArrayList<ItemInfoBeans>();
 		Connection conn = null;
 		PreparedStatement st = null;
 		try {
 			conn = DBManager.getConnection();
-			st = conn.prepareStatement("SELECT * FROM item WHERE rate <> 0");
+			st = conn.prepareStatement("SELECT * FROM item WHERE rate <> 0 LIMIT 10000000 OFFSET ?");
 
+			st.setInt(1, 8*(pageNumber-1));
 			ResultSet rs = st.executeQuery();
 
 			while(rs.next()) {
@@ -252,18 +253,20 @@ public class ItemDao {
 	}
 
 	/**
-	 *	最新商品情報を取得
+	 *	最新商品情報30件を取得（一覧ページには8件ずつ表示）
 	 * @return ItemInfoBeans
 	 * @throws SQLException
 	 */
-	public static ArrayList<ItemInfoBeans> getLatestItemList() throws SQLException {
+	public static ArrayList<ItemInfoBeans> getLatestItemList(int pageNumber) throws SQLException {
 		ArrayList<ItemInfoBeans> latestItemList = new ArrayList<ItemInfoBeans>();
 		Connection conn = null;
 		PreparedStatement st = null;
 		try {
 			conn = DBManager.getConnection();
-			st = conn.prepareStatement("SELECT * FROM item ORDER BY item_update_date DESC");
+			st = conn.prepareStatement("SELECT * FROM item ORDER BY item_update_date DESC LIMIT 30 OFFSET ?");
 
+
+			st.setInt(1, 8*(pageNumber-1));
 			ResultSet rs = st.executeQuery();
 
 			while(rs.next()) {

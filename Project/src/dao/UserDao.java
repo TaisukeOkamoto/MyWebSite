@@ -116,7 +116,7 @@ public class UserDao {
 
 			st.setString(9, mail);
 			st.setString(10, gender);
-			st.setString(11, password);
+			st.setString(11, ECHelper.convertEncryption(password));
 
 			st.executeUpdate();
 
@@ -337,7 +337,7 @@ public class UserDao {
 			st.setDate(8, BirthDate);
 			st.setString(9, user.getMail());
 			st.setString(10, user.getGender());
-			st.setString(11, user.getPassword());
+			st.setString(11, ECHelper.convertEncryption(user.getPassword()));
 			st.setInt(12, id);
 
 			st.executeUpdate();
@@ -386,13 +386,21 @@ public class UserDao {
 	}
 
 
+	/**
+	 * ユーザーにポイントを付与する
+	 * @param userPoint
+	 * 			ポイント
+	 * @param userId
+	 * 			ユーザーID
+	 * @throws SQLException
+	 */
 	public static void setPointUserInfoBeans(int userPoint,int userId) throws SQLException {
 		Connection conn = null;
 		PreparedStatement st = null;
 		try {
 			conn = DBManager.getConnection();
 			st = conn.prepareStatement("UPDATE user_info" +
-					" SET user_point = ? WHERE id = ?");
+					" SET user_point = user_point + ? WHERE id = ?");
 
 			st.setInt(1, userPoint);
 			st.setInt(2, userId);

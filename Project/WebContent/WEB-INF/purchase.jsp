@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="beans.UserInfoBeans" %>
+<%@ page import="beans.DeliveryMethodInfoBeans" %>
+<%@ page import="beans.BuyInfoBeans" %>
 <!DOCTYPE html>
 <c:choose>
 <%--管理者と一般ユーザーは表示させるヘッダーを変更する --%>
@@ -13,7 +16,6 @@
 </c:otherwise>
 </c:choose>
           <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
-          <p class="text-danger text-center font-weight-bold">${CartAlreadyMsg}${itemDeleteMsg}${CartSetyMsg}</p>
           <main role="main" class="container">
           <form id="purchaseForm" action="PurchaseComplete" method="post">
             <div class="sub_ttl">
@@ -50,7 +52,7 @@
               </div>
             </div>
             <div class="purchase_table">
-              <table class="table table-bordered">
+              <table class="table table-bordered table-striped">
                 <tr>
                   <th>小計</th>
                   <%--価格は###,###形式でフォーマット --%>
@@ -69,38 +71,44 @@
                 </tr>
               </table>
             </div>
-            <div class="purchase_point_table">
-              <table class="table table-bordered">
+              <table class="table table-secondary table-bordered">
                 <tr>
-                  <th>ポイント利用</th>
-                  <td>
-                    <div class="form-check">
-                      <div class="row">
-                        <div class="col-6 text-right">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="radio1" value="option1" checked>
-                          <label class="form-check-label" for="radio1">
-                  ポイントを利用しない
-                </label>
-                        </div>
-                        <div class="col-6 text-left">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="radio2" value="option1">
-                          <label class="form-check-label" for="radio2">
-                  ポイントを利用
-                </label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="text-center col"><input type="text" id="exampleInputPassword1">ポイントを利用</div>
-                      </div>
-                    </div>
+                  <th class="text-center text-white align-middle">ポイント利用</th>
+                  <td class="text-center bg-white">
+                    <select name="UserPointChange" class="form-control" id="UserPointChange">
+					 	<%--セッションスコープからユーザー情報と購入情報とユーザーポイントと配送情報を取り出し、商品価格と配送価格を取得 --%>
+					  	<%
+					  	UserInfoBeans user = (UserInfoBeans)session.getAttribute("user");
+					  	BuyInfoBeans bib = (BuyInfoBeans)session.getAttribute("bib");
+					  	int UserPointChange = (int)session.getAttribute("UserPointChange");
+					  	int totalPrice =  bib.getTotalPrice();
+					  	DeliveryMethodInfoBeans dmib = (DeliveryMethodInfoBeans)session.getAttribute("dmib");
+					  	int DeliveryPrice = 0;
+					  	if(dmib != null) {
+					  		DeliveryPrice = dmib.getDeliveryPrice();
+					  	}
+					  	%>
+					  	<%--ユーザーポイントを取りだしてそれを超えない範囲で50ポイントずつ取得 --%>
+					  	<%
+					  	int userPoint = user.getUserPoint();
+						for (int i = 0; i <= userPoint; i += 50) {
+						%>
+					    <option value="<%= i %>" <%if(UserPointChange == i){%>selected<%}%>><%= i %></option>
+					    <%--商品価格と配送価格の合計を超えた時はループを抜ける --%>
+					    <%
+					    	if(i > totalPrice + DeliveryPrice - 50){
+							break;
+					    	}
+						   }
+						%>
+					</select>
                   </td>
                 </tr>
               </table>
-            </div>
             <div class="amount_price text-center">
               <%--価格は###,###形式でフォーマット --%>
               <%--配送料データが無ければ（通常配送なら）0円 + 小計金額、あれば配送料+小計金額--%>
-              <p>お支払い金額：<fmt:formatNumber value="${dmib.deliveryPrice == null?0 + bib.totalPrice:dmib.deliveryPrice + bib.totalPrice}" pattern="###,###" />円</p>
+              <p>お支払い金額：<fmt:formatNumber value="${dmib.deliveryPrice == null?0 + bib.totalPrice - UserPointChange:dmib.deliveryPrice + bib.totalPrice - UserPointChange}" pattern="###,###" />円</p>
             </div>
             <div class="text-center"><button type="submit" class="btn btn-danger buy_button">注文を確定する</button></div>
             </form>
@@ -111,6 +119,14 @@
 	$(function(){
 	  $("#DeliveryMethodChange").change(function(){
 		  document.getElementById('purchaseForm').action="DeliveryMethodChange";
+		  $("#purchaseForm").submit();
+	  });
+	});
+	</script>
+	<script>
+	$(function(){
+	  $("#UserPointChange").change(function(){
+		  document.getElementById('purchaseForm').action="UserPointChange";
 		  $("#purchaseForm").submit();
 	  });
 	});

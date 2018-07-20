@@ -17,8 +17,8 @@
           <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
           <main role="main" class="container">
             <div class="sub_ttl">
-              <h3>${item.itemName}</h3></div>
-            <p><a href="">Home</a>&nbsp;&gt;&nbsp;<a href="">メンズ</a>&nbsp;&gt;&nbsp;<a href="">シャツ</a>&nbsp;&gt;&nbsp;<a href="">半袖</a></p>
+              <h3>${item.itemName}</h3></div><%--商品からユーザー種別、大カテゴリー、小カテゴリーそれぞれのIDと名前を取得してパンくずリストを作成 --%>
+            <p><a href="Index">Home</a>&nbsp;&gt;&nbsp;<a href="ItemCategoryList?userType=${item.userType}">${item.userTypeName}</a>&nbsp;&gt;&nbsp;<a href="ItemCategoryList?userType=${item.userType}&lCategory=${item.lCategory}">${item.lCategoryName}</a>&nbsp;&gt;&nbsp;<a href="ItemCategoryList?userType=${item.userType}&lCategory=${item.lCategory}&sCategory=${item.sCategory}">${item.sCategoryName}</a></p>
             <div class="row">
               <div class="col-sm-6">
                 <div class="row">

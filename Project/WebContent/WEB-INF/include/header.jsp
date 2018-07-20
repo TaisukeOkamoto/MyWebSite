@@ -36,8 +36,8 @@
               <li class="category-3 pointer">アウター</li>
               <ul class="none">
                 <li><a href="ItemCategoryList?userType=1&lCategory=2" class="text-site">商品一覧</a></li>
-                <li><a href="ItemCategoryList?userType=1&lCategory=1&sCategory=3" class="text-site">ジャケット</a></li>
-                <li><a href="ItemCategoryList?userType=1&lCategory=1&sCategory=4" class="text-site">コート</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=2&sCategory=3" class="text-site">ジャケット</a></li>
+                <li><a href="ItemCategoryList?userType=1&lCategory=2&sCategory=4" class="text-site">コート</a></li>
               </ul>
               <li class="category-3 pointer">ボトムス・靴</li>
               <ul class="none">
@@ -71,8 +71,8 @@
               <li class="category-3 pointer">ボトムス・靴</li>
               <ul class="none">
                 <li><a href="ItemCategoryList?userType=2&lCategory=3" class="text-site">商品一覧</a></li>
-                <li><a href="ItemCategoryList?userType=2&lCategory=3&sCategory=5" class="text-site">靴</a></li>
-                <li><a href="ItemCategoryList?userType=2&lCategory=3&sCategory=6" class="text-site">ジーンズ</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=3&sCategory=5" class="text-site">ジーンズ</a></li>
+                <li><a href="ItemCategoryList?userType=2&lCategory=3&sCategory=6" class="text-site">靴</a></li>
               </ul>
               <li class="category-3 pointer">アクセリー</li>
               <ul class="none">
@@ -100,8 +100,8 @@
               <li class="category-3 pointer">ボトムス・靴</li>
               <ul class="none">
                 <li><a href="ItemCategoryList?userType=3&lCategory=3" class="text-site">商品一覧</a></li>
-                <li><a href="ItemCategoryList?userType=3&lCategory=3&sCategory=5" class="text-site">靴</a></li>
-                <li><a href="ItemCategoryList?userType=3&lCategory=3&sCategory=6" class="text-site">ジーンズ</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=3&sCategory=5" class="text-site">ジーンズ</a></li>
+                <li><a href="ItemCategoryList?userType=3&lCategory=3&sCategory=6" class="text-site">靴</a></li>
               </ul>
               <li class="category-3 pointer">アクセリー</li>
               <ul class="none">

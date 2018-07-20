@@ -36,6 +36,14 @@ public class MypageLike extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
+		//お気に入りメッセージを受け取り、nullでなければリクエストスコープに保存後、セッションスコープは削除
+		String LikeDeleteMsg = (String) session.getAttribute("LikeDeleteMsg");
+
+		if(LikeDeleteMsg != null) {
+			request.setAttribute("LikeDeleteMsg", LikeDeleteMsg);
+			session.removeAttribute("LikeDeleteMsg");
+		}
+
 		//ユーザーIDが無ければトップページへ飛ばす、管理者なら管理者トップページを表示
 		Integer userId = (Integer) session.getAttribute("userId");
 		 if(userId == null) {

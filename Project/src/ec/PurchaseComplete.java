@@ -78,13 +78,24 @@ public class PurchaseComplete extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		//合計金額を取得
 		int totalPrice = bib.getTotalPrice();
+		//ユーザーIDを取得
 		int userId = (int) session.getAttribute("userId");
-		try {
-			DeliveryMethodInfoBeans DeliveryMethodInfo = DeliveryMethodDao.getDeliveryMethodById(DeliveryMethodId);
-			int deliveryMethodPrice = DeliveryMethodInfo.getDeliveryPrice();
 
-			int userPoint = (int) Math.round(Math.floor((double)(totalPrice + deliveryMethodPrice)/100));
+		try {
+			//配送方法情報を取得
+			DeliveryMethodInfoBeans DeliveryMethodInfo = DeliveryMethodDao.getDeliveryMethodById(DeliveryMethodId);
+			//配送金額を取得
+			int deliveryMethodPrice = DeliveryMethodInfo.getDeliveryPrice();
+			//配送金額を取得
+			int UserPointChange = (int) session.getAttribute("UserPointChange");
+
+			//ポイントを計算
+			int userPoint = (int) Math.round(Math.floor((double)(totalPrice + deliveryMethodPrice - UserPointChange)/100));//ポイントを付与
+			//ポイントを引く
+			UserDao.setPointUserInfoBeans(-1*UserPointChange,userId);
+			//ポイントを付与
 			UserDao.setPointUserInfoBeans(userPoint,userId);
 
 		} catch (SQLException e) {
@@ -94,6 +105,7 @@ public class PurchaseComplete extends HttpServlet {
 
 		session.removeAttribute("cart");
 		session.removeAttribute("bib");
+		session.removeAttribute("UserPointChange");
 
 		//購入完了画面へ遷移
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/purchase_complete.jsp");

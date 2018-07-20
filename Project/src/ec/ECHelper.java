@@ -1,8 +1,14 @@
 package ec;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import javax.xml.bind.DatatypeConverter;
 
 import beans.ItemInfoBeans;
 
@@ -70,6 +76,32 @@ public class ECHelper {
 
 		System.out.println("Getting total price has been completed");
 		return total;
+	}
+
+	/**
+	 * 文字列をMD5で暗号化
+	 * @param source
+	 * @return
+	 */
+	public static String convertEncryption(String source) {
+
+		//ハッシュ生成前にバイト配列に置き換える際のCharset
+		Charset charset = StandardCharsets.UTF_8;
+		//ハッシュアルゴリズム
+		String algorithm = "MD5";
+		try {
+			//ハッシュ生成処理
+			byte[] bytes;
+			bytes = MessageDigest.getInstance(algorithm).digest(source.getBytes(charset));
+			String result = DatatypeConverter.printHexBinary(bytes);
+			//標準出力
+			System.out.println(result);
+			return result;
+		} catch (NoSuchAlgorithmException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

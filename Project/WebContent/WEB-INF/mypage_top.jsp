@@ -7,7 +7,7 @@
           <main role="main" class="container">
             <div class="sub_ttl">
               <h3>マイページ</h3></div>
-     <p class="text-danger text-center font-weight-bold">${UserUpdateMsg}</p>
+     		<p class="text-center"><span class="alert-success <c:if test="${UserUpdateMsg != null}">p-2</c:if>">${UserUpdateMsg}</span></p>
             <div class="row">
               <div class="col-3">
                 <ul>

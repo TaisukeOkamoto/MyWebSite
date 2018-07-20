@@ -7,16 +7,10 @@
 <%@ include file="include/user_header.jsp"%>
           <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
           <main role="main" class="container">
-              <p class="text-danger text-center font-weight-bold">
-              ${memberCheckErr}
-              ${emptyInputErr}
-              ${emptyBitrhDayErr}
-              ${differentPasswordErr}
-              ${differentMailErr}
-              ${StringPhoneNumberErr}
-              ${StringAddressNumberErr}
-             ${OverlapMailErr}
-              </p>
+			<p class="text-center">
+			<span class="alert-danger <c:if test="${memberCheckErr != null || emptyInputErr != null || emptyBitrhDayErr != null || differentPasswordErr != null || differentMailErr != null || StringPhoneNumberErr != null || StringAddressNumberErr != null || OverlapMailErr != null}">p-2</c:if>">
+			${memberCheckErr}${emptyInputErr}${emptyBitrhDayErr}${differentPasswordErr}${differentMailErr}${StringPhoneNumberErr}${StringAddressNumberErr}${OverlapMailErr}</span>
+			</p>
             <div class="sub_ttl">
               <h3>会員登録情報更新</h3></div>
             <form class="registration_form" action="MypageUserUpdate" method="post">

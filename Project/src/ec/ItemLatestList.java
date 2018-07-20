@@ -34,8 +34,16 @@ public class ItemLatestList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			//ページ番号の初期値を設定
+			int pageNumber = 1;
+			String pageNumberstr = request.getParameter("pageNumber");
+			//pageNumberがnullで無ければ初期値を設定
+			if(pageNumberstr != null) {
+				pageNumber = Integer.parseInt(pageNumberstr);
+			}
 			//割引商品リスト受け渡し
-			ArrayList<ItemInfoBeans> latestItemList = ItemDao.getLatestItemList();
+			ArrayList<ItemInfoBeans> latestItemList = ItemDao.getLatestItemList(pageNumber);
+			request.setAttribute("pageNumber", pageNumber);
 			request.setAttribute("latestItemList",latestItemList);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック

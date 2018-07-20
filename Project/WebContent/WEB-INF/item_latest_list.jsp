@@ -17,9 +17,8 @@
             <div class="sub_ttl">
               <h3>新商品一覧</h3></div>
             <div class="sale_item_list_area">
-				<div class="row">
-					<%--最新商品を30件まで表示--%>
-					<c:forEach var="latestitem" items="${latestItemList}" varStatus="status" begin="0" end="29">
+				<div class="row"><%--最新商品を8件取得 --%>
+					<c:forEach var="latestitem" items="${latestItemList}" varStatus="status" begin="0" end="7">
 		                <div class="col-6 col-md-3 items mb-3">
 		                  <a href="ItemDetail?itemid=${latestitem.id}"><img src="images/${latestitem.fileName}" alt="${latestitem.itemName}"></a>
 		                  <p class="item_ttl">${latestitem.itemName}</p>
@@ -35,23 +34,33 @@
 		                </div>
 	                </c:forEach>
                 </div>
-            </div>
+            </div><%--ページャー機能 --%>
             <nav aria-label="...">
               <ul class="pagination justify-content-center">
                 <li class="page-item">
-                  <a class="page-link" href="#" aria-label="前">
+                  <c:if test="${pageNumber -1 > 0}"><%--前のページがあるのはpageNumberが2以上の時 --%>
+                  <a class="page-link" href="ItemLatestList?pageNumber=${pageNumber - 1}" aria-label="前">
                   <span aria-hidden="true">&laquo;</span>
                   <span class="sr-only">前</span>
-                </a>
+                  </a>
+                  </c:if>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="次">
+                <c:if test="${pageNumber -1 > 0}"><%--前のページがあるのはpageNumberが2以上の時 --%>
+                <li class="page-item"><a class="page-link" href="ItemLatestList?pageNumber=${pageNumber - 1}">${pageNumber -1}</a></li>
+                </c:if>
+                <%--現在のページ --%>
+                <li class="page-item disabled"><a class="page-link" href="ItemLatestList?pageNumber=${pageNumber}">${pageNumber}</a></li>
+                <%--次のページがあるのは取得した商品のリストが8件以上ある時 --%>
+                <c:if test="${latestItemList.size() > 8}">
+                <li class="page-item"><a class="page-link" href="ItemLatestList?pageNumber=${pageNumber + 1}">${pageNumber + 1}</a></li>
+                </c:if>
+                <li class="page-item"><%--次のページがあるのは取得した商品のリストが8件以上ある時 --%>
+                  <c:if test="${latestItemList.size() > 8}">
+                  <a class="page-link" href="ItemLatestList?pageNumber=${pageNumber + 1}" aria-label="次">
                   <span aria-hidden="true">&raquo;</span>
                   <span class="sr-only">次</span>
-                </a>
+                  </a>
+                  </c:if>
                 </li>
               </ul>
             </nav>

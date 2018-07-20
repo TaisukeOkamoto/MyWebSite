@@ -8,7 +8,8 @@
           <main role="main" class="container">
             <div class="sub_ttl">
               <h3>マイページ</h3></div>
-              <p class="text-danger text-center font-weight-bold">${LikeSetMsg}${LikeAlreadyMsg}</p>
+              <p class="text-center alert"><span class="alert-danger <c:if test="${LikeAlreadyMsg != null || LikeDeleteMsg != null}">p-2</c:if>">${LikeAlreadyMsg}${LikeDeleteMsg}</span></p>
+              <p class="text-center alert"><span class="alert-success <c:if test="${LikeSetMsg != null}">p-2</c:if>">${LikeSetMsg}</span></p>
             <div class="mypage_like_area">
               <div class="row">
                 <div class="col-3">
@@ -30,11 +31,13 @@
                   <c:forEach var="likeItem" items="${likeItems}" varStatus="status">
                     <div class="col-4 items mb-5"><a href="ItemDetail?itemid=${likeItem.id}"><img src="images/${likeItem.fileName}" alt="${likeItem.itemName}"></a><br>
                       <p class="item_ttl">${likeItem.itemName}</p>
-			          <p class="price_before">
-			          <%--価格は###,###形式でフォーマット --%>
-			           <span class="line_through"><fmt:formatNumber value="${likeItem.priceWithTax}" pattern="###,###" /><span class="tax">（税込）</span></span>
-			           <span class="discount">${likeItem.rate}%OFF</span>
-			          </p>
+		                  <p class="price_before">
+		                  <%--割引が0でない時のみ表示。価格は###,###形式でフォーマット--%>
+		                  	<c:if test="${likeItem.rate != 0}">
+			                    <span class="line_through"><fmt:formatNumber value="${likeItem.priceWithTax}" pattern="###,###" /><span class="tax">円（税込）</span></span>
+			                    <span class="discount">${likeItem.rate}%OFF</span>
+		                    </c:if>
+		                  </p>
 			          <%--割引価格は切り捨て、価格は###,###形式でフォーマット --%>
                       <p class="price_after mb-3"><fmt:formatNumber value="${Math.round(Math.floor(likeItem.priceWithTax*(1 - likeItem.rate/100)))}" pattern="###,###" />円<span class="tax">（税込）</span></p>
                       <button id="${likeItem.id}" type="button" class="btn btn-danger passDeleteClass" data-toggle="modal" data-target="#delete_item">削除</button>
@@ -58,7 +61,7 @@
       </button>
           </div>
           <div class="modal-body">
-            <div class="text-center" id="deleteButton"><a class="btn btn-danger" href="" role="button">削除</a></div>
+            <div class="text-center passDeleteClass" id="deleteButton"><a class="btn btn-danger" href="" role="button">削除</a></div>
           </div>
         </div>
       </div>

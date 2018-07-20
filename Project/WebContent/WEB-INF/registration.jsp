@@ -8,16 +8,10 @@
 <%@ include file="include/header.jsp"%>
           <div class="site_ttl"><h1><a href="Index"><img src="images/logo.svg" alt="fashion center ウニクロ"></a></h1></div>
           <main role="main" class="container">
-              <p class="text-danger text-center font-weight-bold">
-              ${memberCheckErr}
-              ${emptyInputErr}
-              ${emptyBitrhDayErr}
-              ${differentPasswordErr}
-              ${differentMailErr}
-              ${StringPhoneNumberErr}
-              ${StringAddressNumberErr}
-             ${OverlapMailErr}
-              </p>
+			<p class="text-center">
+			<span class="alert-danger <c:if test="${memberCheckErr != null || emptyInputErr != null || emptyBitrhDayErr != null || differentPasswordErr != null || differentMailErr != null || StringPhoneNumberErr != null || StringAddressNumberErr != null || OverlapMailErr != null}">p-2</c:if>">
+			${memberCheckErr}${emptyInputErr}${emptyBitrhDayErr}${differentPasswordErr}${differentMailErr}${StringPhoneNumberErr}${StringAddressNumberErr}${OverlapMailErr}</span>
+			</p>
             <div class="sub_ttl">
               <h3>新規会員登録</h3></div>
             <form class="registration_form" action="Registration" method="post">
@@ -33,16 +27,16 @@
               <div class="form-group row">
                 <label for="lgFormGroupInput" class="col-sm-3 col-form-label col-form-label-lg">郵便番号</label>
                 <div class="col">
-                  <input name="address" type="text" class="form-control" value="${user.address}" maxlength="7" required>
+                  <input id="post" name="address" type="text" class="form-control" value="${user.address}" maxlength="7" required>
                 </div>
                 <div class="col">
-                  <button type="button" class="btn btn-primary rounded-0">郵便番号から住所を反映</button>
+                  <button id="btn_post" type="button" class="btn btn-primary rounded-0">郵便番号から住所を反映</button>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="lgFormGroupInput" class="col-sm-3 col-form-label col-form-label-lg">住所</label>
                 <div class="col-sm-9 form-space">
-                  <select name="prefecture" class="custom-select" value="${user.prefecture}" required>
+                  <select id="address1" name="prefecture" class="custom-select" value="${user.prefecture}" required>
 		              <option value="">都道府県を選択</option>
 		              <option value="北海道" <c:if test="${user.prefecture.equals('北海道')}">selected</c:if>>北海道</option>
 		              <option value="青森県" <c:if test="${user.prefecture.equals('青森県')}">selected</c:if>>青森県</option>
@@ -92,10 +86,10 @@
             	</select>
                 </div>
                 <div class="col-sm-9 ml-auto form-space">
-                  <input name="city" type="text" class="form-control" placeholder="市区町村" value="${user.city}" required>
+                  <input id="address2" name="city" type="text" class="form-control" placeholder="市区町村" value="${user.city}" required>
                 </div>
                 <div class="col-sm-9 ml-auto form-space">
-                  <input name="street" type="text" class="form-control" placeholder="町名番地" value="${user.street}" required>
+                  <input id="address3" name="street" type="text" class="form-control" placeholder="町名番地" value="${user.street}" required>
                 </div>
               </div>
               <div class="form-group row">
@@ -208,5 +202,22 @@
             </form>
           </main>
 <%@ include file="include/footer.jsp"%>
+<%--郵便番号から住所を反映 --%>
+<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
+<script>
+$(document).ready(function() {
+	    $('#post').jpostal({
+	        click : '#btn_post',
+	        postcode : [
+	            '#post'
+	        ],
+	        address : {
+	            '#address1' : '%3',
+	            '#address2' : '%4',
+	            '#address3' : '%5'
+	        }
+	    });
+});
+</script>
   </body>
 </html>
