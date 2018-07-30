@@ -43,7 +43,7 @@
          <p class="item_ttl">${discountitem.itemName}</p>
          <p class="price_before">
          <%--価格は###,###形式でフォーマット --%>
-           <span class="line_through"><fmt:formatNumber value="${discountitem.priceWithTax}" pattern="###,###" /><span class="tax">（税込）</span></span>
+           <span class="line_through"><fmt:formatNumber value="${discountitem.priceWithTax}" pattern="###,###" />円<span class="tax">（税込）</span></span>
            <span class="discount">${discountitem.rate}%OFF</span>
          </p>
          <%--割引価格は切り捨て、価格は###,###形式でフォーマット --%>

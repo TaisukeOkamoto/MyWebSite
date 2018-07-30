@@ -11,12 +11,12 @@
               <div class="row">
                 <div class="col-3">
                   <ul>
-                    <li><a href="mypage_top.html">マイページトップ</a></li>
-                    <li><a href="MypageHistory">購入履歴</a></li>
-                    <li><a href="MypageUserUpdate">登録情報変更</a></li>
-                    <li><a href="MypageLike">お気に入り商品</a></li>
-                    <li><a href="MypageUnsubscribe">退会手続き</a></li>
-                    <li><a href="index.html">ログアウト</a></li>
+                  <li><a href="Mypage">マイページトップ</a></li>
+                  <li><a href="MypageHistory">購入履歴</a></li>
+                  <li><a href="MypageUserUpdate">登録情報変更</a></li>
+                  <li><a href="MypageLike">お気に入り商品</a></li>
+                  <li><a href="MypageUnsubscribe">退会手続き</a></li>
+                  <li><a href="Logout">ログアウト</a></li>
                   </ul>
                 </div>
                 <div class="col-9">
